@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-10-05T11:02:02.795Z</updated>
+  <updated>2024-10-05T11:09:37.647Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/posts/0.html"/>
+    <id>http://example.com/posts/0.html</id>
+    <published>2024-10-05T11:04:31.959Z</published>
+    <updated>2024-10-05T11:09:37.647Z</updated>
+    
+    <content type="html"><![CDATA[<p>title: C++初学笔记及代码记录<br>author: 薯片菌<br>cover: <a href="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/wp9184990-sceneries-4k-wallpapers.jpg">https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/wp9184990-sceneries-4k-wallpapers.jpg</a><br>abbrlink:<br>date: </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;title: C++初学笔记及代码记录&lt;br&gt;author: 薯片菌&lt;br&gt;cover: &lt;a href=&quot;https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/wp9184990-sceneries-</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/posts/0.html"/>
+    <id>http://example.com/posts/0.html</id>
+    <published>2024-10-05T11:04:04.336Z</published>
+    <updated>2024-10-05T11:04:04.336Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Java程序设计重新笔记及知识点梳理</title>
