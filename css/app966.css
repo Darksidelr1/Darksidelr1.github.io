@@ -1,0 +1,18 @@
+/* 这里是设置一个全局透明度，不然不太协调，可以根据自己的喜好修改 */
+:root {
+    --card-bg: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme='dark'] #web_bg {
+  background: url('https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/wp10775144-city-anime-night-sky-wallpapers.jpg');
+  background-size: cover;
+}
+
+/* 适配手机模式 */
+
+@media (max-width: 768px) {
+[data-theme='dark'] #web_bg {
+    background: url('https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/wp10775144-city-anime-night-sky-wallpapers.jpg');
+    background-size: cover;
+  }
+}
