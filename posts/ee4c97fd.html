@@ -1,0 +1,1109 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计组学习笔记 | 薯片菌のBlog</title><meta name="author" content="薯片菌"><meta name="copyright" content="薯片菌"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="机组理论计算机概述计算机重要的硬件部件冯诺依曼机的特点1、计算机由五大部件组成：运算器、控制器、存储器、输入设备、输出设备2、指令和数据以同等地位存于存储器，可按地址寻访3、指令和数据用二进制表示4、指令由操作码和地址码组成5、存储程序6、以运算器为中心（现在计算机以存储器为中心） 控制器功能是协调和控制计算机的各个部分的工作，确保指令按顺序执行，并与各个部件（如运算器、存储器、I&#x2F;O设备）进行交">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计组学习笔记">
+<meta property="og:url" content="http://example.com/posts/ee4c97fd.html">
+<meta property="og:site_name" content="薯片菌のBlog">
+<meta property="og:description" content="机组理论计算机概述计算机重要的硬件部件冯诺依曼机的特点1、计算机由五大部件组成：运算器、控制器、存储器、输入设备、输出设备2、指令和数据以同等地位存于存储器，可按地址寻访3、指令和数据用二进制表示4、指令由操作码和地址码组成5、存储程序6、以运算器为中心（现在计算机以存储器为中心） 控制器功能是协调和控制计算机的各个部分的工作，确保指令按顺序执行，并与各个部件（如运算器、存储器、I&#x2F;O设备）进行交">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/blogpicture002.jpg">
+<meta property="article:published_time" content="2025-03-31T23:53:58.000Z">
+<meta property="article:modified_time" content="2025-06-16T17:13:44.536Z">
+<meta property="article:author" content="薯片菌">
+<meta property="article:tag" content="博客、薯片菌、薯片、学习、blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/blogpicture002.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/posts/ee4c97fd.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/pwa/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计组学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-06-17 01:13:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script async src="/js/title.js"></script><link rel="stylesheet" href="/css/app966.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="薯片菌のBlog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background:url(https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/blogpicture002.jpg);background-attachment: local;background-position: center;background-size: cover;background-repeat: no-repeat;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://imgbed.yiyunt.cn/img/220" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/blogpicture002.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="薯片菌のBlog"><span class="site-name">薯片菌のBlog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计组学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-03-31T23:53:58.000Z" title="发表于 2025-04-01 07:53:58">2025-04-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-16T17:13:44.536Z" title="更新于 2025-06-17 01:13:44">2025-06-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计组学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="机组理论"><a href="#机组理论" class="headerlink" title="机组理论"></a>机组理论</h1><h2 id="计算机概述"><a href="#计算机概述" class="headerlink" title="计算机概述"></a>计算机概述</h2><h3 id="计算机重要的硬件部件"><a href="#计算机重要的硬件部件" class="headerlink" title="计算机重要的硬件部件"></a>计算机重要的硬件部件</h3><h4 id="冯诺依曼机的特点"><a href="#冯诺依曼机的特点" class="headerlink" title="冯诺依曼机的特点"></a>冯诺依曼机的特点</h4><p>1、计算机由<strong>五大部件</strong>组成：运算器、控制器、存储器、输入设备、输出设备<br>2、指令和数据以同等地位存于存储器，可按地址寻访<br>3、指令和数据用二进制表示<br>4、指令由操作码和地址码组成<br>5、存储程序<br>6、以运算器为中心（现在计算机以存储器为中心）</p>
+<p>控制器功能是协调和控制计算机的各个部分的工作，确保指令按顺序执行，并与各个部件（如运算器、存储器、I/O设备）进行交互，在现代计算机中，控制器相当于<strong>CPU</strong>中的一部分，具体来说就是<strong>控制单元</strong>（Control Unit）。控制单元负责从内存中提取指令，解析指令，发出控制信号以确保指令的正确执行。</p>
+<p>小结一下就是CPU中负责按顺序执行指令的部分。</p>
+<p>冯诺依曼计算机一开始以运算器为中心，现在以存储器为中心<br>指令也是一种数据</p>
+<p>冯诺依曼结构计算机中数据采用二进制编码表示，主要原因是<br>1、二进制运算规则简单；<br>2、制造两个稳态的物理器件比较容易<br>3、便于用逻辑门电路实现算术运算。</p>
+<h4 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a><strong>主存储器</strong></h4><p>主存储器的组成<br>1、存储体（核心）：数据在存储体内按地址存储<br>2、MAR（存储地址寄存器）：MAR位数反映存储单元个数<br>3、MDR（存储数据寄存器）：MDR位数等于存储字长</p>
+<p>相关概念<br>1、存储元：即存储二进制信息的基本单元，每个存储元只能存储1个二进制位，即1bit，可以类比为一个最小的存储单元。特点：<u>最小</u><br>2、存储单元：由存储元组成，通常是能存储一段二进制代码的单位。比如一个存储单元可以存储8个二进制位，即1字节（1Byte）。因此，存储单元就是存储一定数量的bit。<br>3、存储字：存储单元中二进制代码的组合<br>4、存储字长：存储单元中二进制代码的位数<br>5、1字节(Byte) = 8bit，1B = 1个字节 1b = 1位进制</p>
+<p>一个存储单元由多个存储元组成，一个存储体由若干个存储单元组成<br>存储单元的宽度就是存储器的长度，在同一个存储器中，每个存储单元的宽度，即存储字长是固定的。</p>
+<p>我自己的理解：首先存储元是最小的存储单位一个存储元存储一个二进制位就是0或1<br>存储单元就是由多个存储元组成的一串0和1，可以人为规定有多少位，这个位数就是存储字长。<br>存储字说白了就是操作系统的位数，代表了计算机存储和处理数据的基本单位。比如32位的操作系统也是可以进行64位的计算的，但是要把64位的计算数据进行拆分。<br>存储字长就是存储单元的位数。</p>
+<h4 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h4><p>运算器的主要功能是进行<strong>逻辑和算术运算</strong>。</p>
+<p>运算器的组成</p>
+<ol>
+<li>ACC(累加器)</li>
+<li>MQ(乘商寄存器)</li>
+<li>X(通用的操作数寄存器)</li>
+<li>ALU(算术逻辑单元)</li>
+</ol>
+<p>其中前面三个是必须的寄存器，后面的ALU是运算器的核心</p>
+<p>相关概念</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317190350526.png" alt="image-20250317190350526"></p>
+<p>首先学习一下这是什么？这三个都是不同的寄存器。</p>
+<p>首先MQ是涉及到乘法的，加法和减法只涉及到ACC和X，其中在ACC和X中<br>ACC一开始存储一个原始数据，然后X是操作数寄存器，对原始数据进行操作和更改<br>涉及到除法的部分就是acc存被除数，X存一个除数，计算的具体步骤可以看似成比较，从acc中不断数出X的数值，<br>每次数到X的数之后，就对MQ的值+1，最后ACC中剩下的数就是余数了<br>乘法最特殊，首先乘法的两个操作数，分别由X和MQ存储，然后ACC和MQ都只能存储结果的一部分，因为对于小数来说，可能位数会变多。</p>
+<p>ACC在大多数情况下都是存储结果的和被操作数的<br>X在所有情况下都是存操作数的。</p>
+<h4 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h4><h5 id="控制器的组成"><a href="#控制器的组成" class="headerlink" title="控制器的组成"></a>控制器的组成</h5><ol>
+<li>CU（控制单元）：分析指令，给出控制信号</li>
+<li>IR（指令寄存器）：存放当前执行的指令</li>
+<li>PC（程序计数器）：存放下一条指令地址，有自动加1的功能</li>
+</ol>
+<p>IR中存储的是指令，PC中存储的是地址</p>
+<h5 id="硬件工作过程"><a href="#硬件工作过程" class="headerlink" title="硬件工作过程"></a>硬件工作过程</h5><p> 初始指令和数据存入主存，PC指向第一条指令，从主存中取出指令放入IR中，PC自动加1，CU分析指令并发出控制信号来控制其他部件执行指令。</p>
+<p>CPU =  运算器 + 控制器 （+ 寄存器） </p>
+<h3 id="计算机系统的层次结构"><a href="#计算机系统的层次结构" class="headerlink" title="计算机系统的层次结构"></a>计算机系统的层次结构</h3><h4 id="层次结构"><a href="#层次结构" class="headerlink" title="层次结构"></a>层次结构</h4><p> <img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317201752275.png" alt="image-20250317201752275"></p>
+<h4 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h4><p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317202104091.png" alt="image-20250317202104091"></p>
+<p>计算机直接能执行的只有机器语言</p>
+<h3 id="计算机的性能指标"><a href="#计算机的性能指标" class="headerlink" title="计算机的性能指标"></a>计算机的性能指标</h3><h4 id="存储器的性能指标"><a href="#存储器的性能指标" class="headerlink" title="存储器的性能指标"></a>存储器的性能指标</h4><p>1、存储器的容量 = 存储单元数 X 存储字长（bit） = 存储单元数 X 存储字长（8）（Byte）</p>
+<p>2、相关概念</p>
+<ol>
+<li><p>n位二进制可表示2^n^ 种状态，<br>例如： 2位二进制可表示4种状态：00，01，10，11</p>
+</li>
+<li><p>容量相关的题中1K = 2^10^ , 1M = 2^20^ 1G = 2^30^ ,1T = 2^40^</p>
+<p>在与时间相关（如传输速率）题中：1K = 10^3# , 1M = 10^6^ ,1G = 10^9^ , 1T = 10^12^</p>
+</li>
+</ol>
+<h4 id="CPU的性能指标"><a href="#CPU的性能指标" class="headerlink" title="CPU的性能指标"></a>CPU的性能指标</h4><p>1、CLK</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317204039373.png" alt="image-20250317204039373"></p>
+<p>简单来说就是两次下信号沿之间的时间。<br>CPU时钟周期是计算机最小的时间单位<br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317204206967.png" alt="image-20250317204206967"></p>
+<p>3、CPI ：执行<strong>一条指令</strong>所需要的时钟周期数</p>
+<p>4、IPS：每秒执行的指令条数<img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317204334454.png" alt="image-20250317204334454"></p>
+<p>5、FLOPS：每秒执行的浮点运算次数<br>6、执行一条指令的耗时 = CPIXCPU 时钟周期</p>
+<p>7、CPU执行时间（整个程序的耗时）<br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317212852600.png" alt="image-20250317212852600"></p>
+<h2 id="数据的表示"><a href="#数据的表示" class="headerlink" title="数据的表示"></a>数据的表示</h2><h3 id="数制与编码"><a href="#数制与编码" class="headerlink" title="数制与编码"></a>数制与编码</h3><p>进位计数制<br>1、r（2，8，10，16）进制数<br>基数 = r每个数码位可能出现r种字符，逢r进1<br><strong>基数</strong><br>每个数码位所用到的不同符号的个数，r进制的基数为r<br><strong>符号</strong></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317214258470.png" alt="image-20250317214258470"></p>
+<p><strong>权重</strong><br>符号与其位置共同影响权重（例如十进制中的个、十、百）<br><strong>表示符号</strong><br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317214745475.png" alt="image-20250317214745475"></p>
+<h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><p><strong>1、r进制 转为 十进制</strong><br>各数码位与其位权的乘积之和<br><strong>2、二进制八进制转换</strong><br>每3个二进制位对应1个八进制位<br><strong>3、二进制和十六进制转换</strong><br><strong>4、十进制与二进制转换</strong><br><strong>5、十进制与八、十六进制转换</strong><br>先将十进制转换为二进制，再转</p>
+<ol>
+<li>十进制转二进制 小数部分<br>乘2取整</li>
+</ol>
+<h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><p>1、BCD编码<br>概念：用4位二进制数来表示1位十进制中的数码<br>8421码<br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317220123582.png" alt="image-20250317220123582"></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250317220243134.png" alt="image-20250317220243134"></p>
+<p>这里的重点是 8421码是用来表示十进制的<br>所以对于十进制 只有0-9 超过的部分要修正<br>为什么要+6 因为四位二进制可以表示2^4^ 也就是16个字符 但是只需要10个字符 有6个是冗余的 所以+6</p>
+<p>ASCII码<br>1、7位二进制编码（通常用8位表示一个字符，最高位为0）表示128种字符<br>2、所有大写字母、小写字母、数字的编码都连续<br>3、常见的ASCII码<img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250318104626976.png" alt="image-20250318104626976"></p>
+<p>汉字的表示和编码<br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250318105433127.png" alt="image-20250318105433127"></p>
+<p>字符串<br>1、从低地址到搞地址逐个字符存储，采用’/0’作为结尾标志<br>2、对于多字节的数据（如汉字），可采用大/笑端存储模式<br>大端模式：将数据的最高有效字节存放在低地址单元中。<br>小端模式：将数据的最高有效字节存放在搞地址单元中。</p>
+<p>校验码<br>概念：校验码是指能够发现或自动校正错误的数据编码，其原理是通过增加一些冗余码，来检验火纠错编码。<br>奇偶校验码<br>1、基本原理：由若干位信息位再加一位二进制位组成校验码<br>2、奇叫偶掩码：整个校验码（有效信息位和校验位）中“1”的个数为奇数<br>3、偶校验码：整个校验码（有效信息位和校验位）中“1”的个数为偶数</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250318110100863.png" alt="image-20250318110100863"></p>
+<p>简单来说就是在原始数据的基础上多加一位（0或者1），然后如果是奇校验码就要保证1的个数是奇数，如果是偶校验码就要保证1的个数是偶数</p>
+<h3 id="定点数的表示"><a href="#定点数的表示" class="headerlink" title="定点数的表示"></a>定点数的表示</h3><p>定点数和浮点数 定点指的是小数点的位置是固定的 浮点指的是小数点的位置是浮动的</p>
+<p>定点整数为纯整数，约定小数点的位置在有效数值部分最低位之后。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250318111312803.png" alt="image-20250318111312803"></p>
+<p>定点小数<br>定点小数是纯小数（即小于1），约定小数点位置在符号位之后，有效数值部分最高位之前。<br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250318134119983.png" alt="image-20250318134119983"></p>
+<p>原、反、补、移码之间的转换</p>
+<h4 id="原码表示法"><a href="#原码表示法" class="headerlink" title="原码表示法"></a>原码表示法</h4><p>用机器数的最高位表示该数的符号（0：正;1：负），其余各位表示数的绝对值。<br>注：真值零的原码表示有2种：+0 = 0,000 -0 = 0,000</p>
+<h4 id="反码表示法"><a href="#反码表示法" class="headerlink" title="反码表示法"></a>反码表示法</h4><p>正数：反码与原码相同;<br>负数：原码符号位不变，数值部分全部取反（0-1；1-0）<br>注：真值零的反码表示有两种 [+0]反=0，000 和[-0]反 = 1,111</p>
+<h4 id="补码表示法"><a href="#补码表示法" class="headerlink" title="补码表示法"></a>补码表示法</h4><p>正数：补码与原码相同；<br>负数：源码符号位不变，数值部分全部取反(0-1;1-0),末位+1(即“取反+1”)<br>注：1、此方法也可以逆着用,即由补码求原码<br>2、真值零的补码表示只有1种,[0]补 = 0,000</p>
+<h4 id="移码表示法"><a href="#移码表示法" class="headerlink" title="移码表示法"></a>移码表示法</h4><p>将[X]补 的符号位取反的即得到[X]移<br>注：1、移码只能用来表示定点整数，（移码多用于表示浮点数的阶码）<br>2、真值零的移码表示只有1种，[0]移 = 1,000</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250318140410987.png" alt="image-20250318140410987"></p>
+<p>小结：定点数的表示就是现有一个符号位表示正负，然后有一位小数点（根据定点整数还是定点小数，小数点的位置不同。）<br>原码就是这个数本身，前面的符号位0正1负，反码对于原码就是正数不变负数全部取反，补码对于原码就是正数不变，负数全部取反，然后末尾+1，移码就是在补码的基础上把符号取反。</p>
+<h3 id="原、反、补、移码的表示范围"><a href="#原、反、补、移码的表示范围" class="headerlink" title="原、反、补、移码的表示范围"></a>原、反、补、移码的表示范围</h3><h4 id="定点整数的原、反、补、移码表示范围"><a href="#定点整数的原、反、补、移码表示范围" class="headerlink" title="定点整数的原、反、补、移码表示范围"></a>定点整数的原、反、补、移码表示范围</h4><p><img src="C:/Users/darks/AppData/Roaming/Typora/typora-user-images/image-20250511145805150.png" alt="image-20250511145805150"></p>
+<p>首先去掉一位符号位，就是有n位<br>其中 原码和反码都有+-0 所以表数范围都是+ -（2^n^ -1)<br>然后补码和移码都只有+0 所以多出来一个原本-0的位置，我们拿来表示 -2^n^  了 即负数的部分多一个数<br>这样就可以简单的理解了。</p>
+<h4 id="定点小数的原、反、补码的表示范围"><a href="#定点小数的原、反、补码的表示范围" class="headerlink" title="定点小数的原、反、补码的表示范围"></a>定点小数的原、反、补码的表示范围</h4><p>首先为什么没有移码，因为移码只能表示定点整数，</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250511150702513.png" alt="image-20250511150702513"></p>
+<p>首先小数肯定小于1 然后去掉以为符号位， 就是n位 能表示2^n^ 位<br>所以是1-2^-n^ 位<br>这里要注意定点小数的补码可以表示-1</p>
+<h3 id="浮点数的表示"><a href="#浮点数的表示" class="headerlink" title="浮点数的表示"></a>浮点数的表示</h3><p>浮点数的表示为： N = r^E^ X M<br>其中，r是浮点数阶码的底（隐含），与尾数的基数相同，通常r = 2。 E 和 M 都是有符号的定点数，E称为阶码，M称为尾数。即浮点数由阶码和尾数两部分组成，如下图所示。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250511180649626.png" alt="image-20250511180649626"></p>
+<p>注：</p>
+<ol>
+<li>阶码是证书，阶符J~f~和阶码位数m共同反映浮点数的表示范围及小数点的实际位置。</li>
+<li>数符S~f~代表浮点数的符号，尾数的位数n反映浮点数的精确度。</li>
+</ol>
+<p><strong>规格化浮点数</strong></p>
+<p>概念：</p>
+<ol>
+<li>为了提高运算精度，充分利用尾数的有效位数，规定尾数的最高数位上保证是一个有效值<br>如果最高位i不是一个有效值 就要进行左右规</li>
+</ol>
+<p>如112.5用浮点数表示</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250511192038945.png" alt="image-20250511192038945"></p>
+<h3 id="规格化浮点数"><a href="#规格化浮点数" class="headerlink" title="规格化浮点数"></a>规格化浮点数</h3><p>在浮点数表示中，<strong>规范化</strong>（normalization）是一个重要的概念，它指的是将数值表示成一种标准的形式。浮点数通常分为两个部分：<strong>尾数</strong>（mantissa）和<strong>指数</strong>（exponent）。规范化的目标是让尾数的最高有效位位于其表示范围内的最左侧或最右侧。</p>
+<p>浮点数的规范化：左规与右规</p>
+<ol>
+<li><strong>左规规范化</strong>（Left Normalization）</li>
+</ol>
+<p>在左规规范化中，浮点数的尾数部分的有效数字会尽可能靠近数值的最高位。对于二进制浮点数，这通常意味着尾数的第一位有效数字应该是 1（即“<a target="_blank" rel="noopener" href="http://1.xxx/">1.XXX</a>”的形式），并且指数相应地调整。</p>
+<p><strong>例如：</strong></p>
+<ul>
+<li>假设有一个浮点数 0.001010.00101 （二进制），要进行左规规范化。</li>
+<li>步骤：<ul>
+<li>先将该数值移动小数点，使得尾数的第一位数字是 1。</li>
+<li>移动小数点三位得到 1.011.01。</li>
+<li>由于小数点向右移动了三位，指数会是 -3。</li>
+<li>规范化后，浮点数表示为 1.01×2−31.01×2−3。</li>
+</ul>
+</li>
+</ul>
+<p>这是一个典型的左规规范化。</p>
+<h4 id="2-右规规范化（Right-Normalization）"><a href="#2-右规规范化（Right-Normalization）" class="headerlink" title="2. 右规规范化（Right Normalization）"></a>2. <strong>右规规范化</strong>（Right Normalization）</h4><p>右规规范化则是与左规相反的，尾数的有效数字会尽可能靠近数值的最低位。在右规规范化中，尾数的第一位有效数字会尽量为 0（即“<a target="_blank" rel="noopener" href="http://0.xxx/">0.XXX</a>”的形式），而指数同样会进行调整。</p>
+<p><strong>例如：</strong></p>
+<ul>
+<li>假设有一个浮点数 1.01001.0100 （二进制），要进行右规规范化。</li>
+<li>步骤：<ul>
+<li>将该数值移到小数点的最右边，使得尾数的第一位数字是 0。</li>
+<li>小数点右移两位，得到 0.01010.0101。</li>
+<li>由于小数点向右移动了两位，指数会变成 2。</li>
+<li>规范化后，浮点数表示为 0.0101×220.0101×22。</li>
+</ul>
+</li>
+</ul>
+<p>这就是右规规范化。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><strong>左规规范化</strong>：尾数的最高有效位为 1，且小数点移动到该位旁边。</li>
+<li><strong>右规规范化</strong>：尾数的第一位有效数字为 0，小数点被移动到最右边。</li>
+</ul>
+<p>概念</p>
+<p>浮点数规格化形式：为了提高运算精度，充分利用尾数的有效数位，规定尾数的最高数位上保证是一个有效值。<br>即如果用原码表示 尾数的最高位就是1，用反码表示，尾数的最高位就是0</p>
+<p>左规：当浮点数运算的结果为非规格化时，要进行规格化处理，将尾数算数左移一位，阶码-1的方法称为左规。左规可能要进行多次。</p>
+<p>右规：当浮点数运算的结果尾数出现溢出（双符号位为01或者10）时，将尾数算数想右移一位，阶码加1的方法称为右规，右规只需进行一次。<br>注：当 r = 2 时，规格化浮点数的尾数M满足 1/2 &lt;=  |M| &lt;=1<br>（保证尾数最高位是有效位，因为0.5的二进制是0.1）</p>
+<p>左规可以看成科学计数法，小数点右移一位 10的次数-1<br>左移和阶码-1同时进行，保证了数字的实际大小不变</p>
+<p>小结：左规左移 阶码-1 可能多次 右规右移 阶码+1 只需一次。  </p>
+<p>尾数为原码时规格化</p>
+<p><img src="C:/Users/darks/AppData/Roaming/Typora/typora-user-images/image-20250511202204244.png" alt="image-20250511202204244"></p>
+<p>尾数为补码时规格化</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250511202653466.png" alt="image-20250511202653466"></p>
+<p>对于正数来说可以认为补码和原码是完全相同的<br>负数的话因为补码要取反然后末尾加1<br>所以用补码表示的时候0也表示有效位</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250511205645344.png" alt="image-20250511205645344"></p>
+<p>若浮点数格式中的基数一定，且尾数采用规格化表示，则浮点数的表示范围取决于阶码的位数，而精度取决于尾数的位数。</p>
+<h4 id="IEEE-754-标准"><a href="#IEEE-754-标准" class="headerlink" title="IEEE  754 标准"></a>IEEE  754 标准</h4><p>按照IEEE 754标准 ，常用的浮点数的格式如下图所示</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250512145059527.png" alt="image-20250512145059527"></p>
+<p>IEEE 754 标准 规定常用的浮点数格式有短浮点数（单精确，float类型）、长浮点数（双精度、double型）、临时浮点数</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250512145605331.png" alt="image-20250512145605331"></p>
+<p>短浮点数和长浮点数都是采用隐含尾数最高位的方法，    因此可多表示一位尾数。临时浮点数无隐含位</p>
+<p>阶码是以移码形式存储的，对于短浮点数，偏置量为127，因此其阶码真值 = 阶码 E  - 127</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250512154106049.png" alt="image-20250512154106049"></p>
+<p> 若浮点数格式中基数一定，且尾数采用规格化表示，则浮点数的表示范围取决于 阶码 的位数，而进度取决于 尾数的位数。</p>
+<h2 id="数据的运算"><a href="#数据的运算" class="headerlink" title="数据的运算"></a>数据的运算</h2><h3 id="定点数的运算"><a href="#定点数的运算" class="headerlink" title="定点数的运算"></a>定点数的运算</h3><p>移位运算与误差舍入处理</p>
+<p>逻辑移位：是指移位过程中不考虑数据符号含义，包括逻辑左移、逻辑右移，通常对于无符号数或逻辑数进行移位。</p>
+<p>​    方法：不管逻辑左移还是逻辑右移，对移位空出位一律补0，对于移出位，不管0 1 ，一律丢掉。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250513135410962.png" alt="image-20250513135410962"></p>
+<p>例：</p>
+<p>移位计算与误差的舍入处理</p>
+<p>假设我们有一个无符号8位二进制数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原始数值： 1101 1010 (即 218)</span><br></pre></td></tr></table></figure>
+<p>逻辑左移（左移一位）：</p>
+<p>逻辑左移时，所有的位向左移动，右侧补0，最左边的位被丢弃。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">左移一位： 1011 0100 (即 180)</span><br></pre></td></tr></table></figure>
+<p>逻辑右移（右移一位）：</p>
+<p>逻辑右移时，所有的位向右移动，左侧补0，最右边的位被丢弃。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">右移一位： 0110 1101 (即 109)</span><br></pre></td></tr></table></figure>
+<p>在这两个操作中，移位空出的位置补充了0，而移出的位被丢弃。</p>
+<p>循环移位：将机器子的首位相接进行移位，其移位通路构成一个环路，不管是左移还是右移，其移出位都会自动填补到空出位中。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250513135829660.png" alt="image-20250513135829660"></p>
+<p>考试中一般是不考的 了解。</p>
+<p>算数移位：针对带符号的移位操作，对于不同表示法的机器码，规则不同，具体如下：原码、补码、反码的移位规则。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250513142326898.png" alt="image-20250513142326898"></p>
+<p>算术移位的时候，符号位不会发生改变</p>
+<p>假设有一个0100 1001 的原码 左移变成了 1001 0010 那也只是数据位变了 最开始的符号位还是0 还是不变<br>下面的位移补码规则也是只是适用于数据位 符号位是不变的<br>然后原码的负数只是符号位不同 所以左右移还是补0<br>反码因为和原码数值相反 所以左右移的时候补1<br>补码最特殊 右移的时候补1 左移的时候补0</p>
+<h3 id="误差的舍入处理"><a href="#误差的舍入处理" class="headerlink" title="误差的舍入处理"></a>误差的舍入处理</h3><p>截断法：当运算结果超出机器字长时，无条件丢掉超出的位数，且保留下来的数值不做任何改变。</p>
+<p>末尾恒置1法：在舍去结果最低位之后超出数值位的同时，将机器数末位（即LSB位）置1，（当超出部分全是0时，末位不变）</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250514103023869.png" alt="image-20250514103023869"></p>
+<p>类似四舍五入<br>正数：舍去部分最高位为1就进位1 为0就全舍<br>补码负数：舍去部分最高位和其他至少有一位是1 就进1 不然就全舍去。</p>
+<h3 id="溢出的判断方法"><a href="#溢出的判断方法" class="headerlink" title="溢出的判断方法"></a>溢出的判断方法</h3><p><strong>概念</strong><br>溢出：指运算结果超出了数的表示范围。通常，称大于机器所能表示的最大正数为上溢，称小于机器所能表示的最小负数为下溢。</p>
+<p><strong>采用双符号位判断溢出</strong></p>
+<p>双符号位法则也称模4补码。运算结果的两个符号位S~s1~ S~s2~ 相同，表示未溢出；运算结果的两个符号位S~s1~ S~s2~ 不同，表示溢出，此时最高位符号位代表真正的符号。</p>
+<p>​    符号位S~s1~ S~s2~  的各种情况如下：</p>
+<ol>
+<li>S~s1~ S~s2~  =  00：表示结果未正数，无溢出。</li>
+<li>S~s1~ S~s2~  = 01：表示结果正溢出。</li>
+<li>S~s1~ S~s2~  = 10 ：表示结果为负溢出</li>
+<li>S~s1~ S~s2~  = 11 表示结果为负数，无溢出。</li>
+</ol>
+<h3 id="定点数加减运算"><a href="#定点数加减运算" class="headerlink" title="定点数加减运算"></a><strong>定点数加减运算</strong></h3><p>定点数的加减运算考试一般只考补码的运算</p>
+<p>补码运算的特点如下（设机器字长为n+1）：</p>
+<ol>
+<li>参与运算的两个操作数均用补码表示。</li>
+<li>按二进制运算规则运算，逢二进一</li>
+<li>符号位与数值位按同样的规则一起参与运算，符号位运算产生的进位要丢掉，结果的符号位由运算得出。</li>
+<li>补码渐渐运算依据下面的公式进行。当参加的数是定点小数的时候，模M = 2；当参加运算的数是定点整数时，模M = 2^n+1^ </li>
+</ol>
+<p>模运算规则： [A+B]~补~ = [A]~补~ +[B]~补~ （mod M） [A-B]~补~ =[A]~补~ + [-B]~补~ （mod M）</p>
+<p>注：mod M运算是为了将溢出位丢掉。也就是说，若做加法，则两数的补码直接相加；若做减法，则将被减数与减数的机器负数相加。</p>
+<h4 id="原-补码的乘法运算-老师说好像不考"><a href="#原-补码的乘法运算-老师说好像不考" class="headerlink" title="原/补码的乘法运算 老师说好像不考"></a>原/补码的乘法运算 老师说好像不考</h4><p>原补码的一位乘法</p>
+<p>​    原码的一位乘法是符号位与数值位分开计算，乘积符号由两个数的符号位“异或”形成，而乘积的数值部分由两个数的绝对值相乘而得，具体方法如下：</p>
+<p>​    |X|x|Y|,按|Y|的每一位从低到高计算，遇到“1”则部分积+|X|，右移一位，遇到“0”则部分积+0，右移一位，右移次数=乘积|Y|的位数</p>
+<h4 id="除法运算也是一样-所以我先不学了"><a href="#除法运算也是一样-所以我先不学了" class="headerlink" title="除法运算也是一样 所以我先不学了"></a>除法运算也是一样 所以我先不学了</h4><h3 id="浮点数的运算"><a href="#浮点数的运算" class="headerlink" title="浮点数的运算"></a>浮点数的运算</h3><h4 id="浮点数的加减运算"><a href="#浮点数的加减运算" class="headerlink" title="浮点数的加减运算"></a>浮点数的加减运算</h4><p>浮点数运算的特点是阶码和尾数分开运算，浮点数的加减运算一律采用补码，主要分为以下几步。</p>
+<ol>
+<li>对阶<br>对阶的目的是使两个操作数的小数点位置对齐，即使两个数的阶码相等，为此，先求阶差，然后以小阶向大阶看齐的原则，将阶码小的尾数右移一位（基数为2），阶加1，直到两个数的阶码相等为止。尾数右移时，舍弃掉有效位会产生误差，影响精度。</li>
+<li>尾数求和<br>将对阶后的尾数按定点数加（减）运算规则运算。</li>
+<li>规格化<br>以双符号位为例，当尾数大于0时，其补码规格化形式为：[S]补 = 00.1xxxx当尾数字小于0时，其补码规格化形式是11.xxxxx</li>
+</ol>
+<p>可见 当尾数的最高数值与符号位不同时，即为规范化形式。</p>
+<p>左规：当尾数出现 00.0xx…x或11.1xxxx时，需要左规，即尾数左移一位，和的阶码减1，直到尾数出现00.1xxxx或11.0xxxx</p>
+<p>右规：当尾数求和结果溢出（如尾数为10.xxxx或01.xxxx)时，需右规，即尾数右移一位，和的阶码加1.<br>注：对于左规和右规，不应死记。考察尾数大小，左规一次相当于x2 右规一次相当于/2</p>
+<p>这里对阶操作 类似  1x10^2^ 和 1x10^3^<br>变成 0.1x10^3^ + 1x10^3^ 就是 1.1x10^3^</p>
+<h4 id="舍入"><a href="#舍入" class="headerlink" title="舍入"></a>舍入</h4><p>在对阶和右规的过程中，可能会将尾数低位丢失，引起误差，影响精度。常见的舍入方法有”0”舍”1”入 法和恒置”1”法<br> “0”舍”1”入法：类似于十进制运算中的”四舍五入”法，即在尾数右移时，被移去的最高数值位为0，则社区，被移去的最高数值为为1，则在尾数的末尾+1，这样做可能会溢出，所以可能又要右规</p>
+<p>恒置”1”法：尾数右移时，不论丢掉的最高数值位是”1”还是”0”，都使右移后的尾数末位恒置”1”。这种方法同样有使尾数变大或变小的两种可能。</p>
+<p><strong>溢出判断</strong></p>
+<p>与顶带你书加减法一样，浮点数加减运算最后一步也需判断溢出。</p>
+<p>在浮点数规格化中已指出当尾数置和（差）出现01.xxxx或10.xxxx时，并不表示移除，只能将此数右规后，再根据阶码来判断浮点数运算结果是否溢出。</p>
+<p>浮点数的溢出与否是由阶码的符号决定的。以双符号位补码为例，当阶码的符号位出现”01”时，即阶码大于最大阶码时，表示上溢，进入中断处理，当阶码的符号位出现“10”时，表示阶码小于最小阶码，表示下溢，按机器零处理。实际上原理还是阶码符号位不同表示溢出，</p>
+<h3 id="加法器与ALU"><a href="#加法器与ALU" class="headerlink" title="加法器与ALU"></a>加法器与ALU</h3><h4 id="加法器"><a href="#加法器" class="headerlink" title="加法器"></a>加法器</h4><h5 id="一位全加器（FA）"><a href="#一位全加器（FA）" class="headerlink" title="一位全加器（FA）"></a>一位全加器（FA）</h5><p>全加器的逻辑表达式如下：<br>和表达式<img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250604224818518.png" alt="image-20250604224818518"></p>
+<p>进位表达式：<img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250604224830969.png" alt="image-20250604224830969"></p>
+<p>结构<br><img src="C:/Users/darks/AppData/Roaming/Typora/typora-user-images/image-20250604224837165.png" alt="image-20250604224837165"></p>
+<h5 id="串行加法器"><a href="#串行加法器" class="headerlink" title="串行加法器"></a>串行加法器</h5><p>在串行加法器中，只有一个全加器，数据逐位串行送入加法器中进行运算。若操作位数长n位，则加法器就要分n次进行，每次产生一位和，并且串行逐位地送回寄存器。进位触发器用来寄存进位符号，以便参与下一次运算。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250604225034450.png" alt="image-20250604225034450"></p>
+<h5 id="并行加法器"><a href="#并行加法器" class="headerlink" title="并行加法器"></a>并行加法器</h5><p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250604233330791.png" alt="image-20250604233330791"></p>
+<p>串行进位（行波进位）</p>
+<p>​    把n哥全加器串接起来，就可进行两个n位数的相加，每级直接依赖于前一级的进位，即进位信号是逐级形成的。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250605200404047.png" alt="image-20250605200404047"></p>
+<p>并行进位（先行进位、同时进位）</p>
+<p>特点是各级进位信号同时产生，各级进位信号表达式如下</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250605203752700.png" alt="image-20250605203752700"></p>
+<p>注：上述所有进位的输出仅由Gi、Pi和最低进位输入C0决定，而不依赖于其低位的进位输入C~i-1~ 因此各级进位输出可以同时产生。</p>
+<p>最重点的就是这个公式 C~1~ = G~1~ + P~1~C~0~<br>C~2~ = G~2~+P~2~C~1~=G~2~ + P~2~G~1~+P~2~P~1~C~0~</p>
+<h4 id="ALU"><a href="#ALU" class="headerlink" title="ALU"></a>ALU</h4><p>ALU是一种功能较强的组合逻辑电路</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250605204615899.png" alt="image-20250605204615899"></p>
+<p>74181外特性示意图</p>
+<p>74181为4位并行加法器，其4位进位是同时产生的，用4片74181芯片可以组16位ALU。其片内进位是快速的，但片间进位是逐片传递的，即组内并行（74181片内），组件串行（74181片间），如下图所示。因此，总的形成时间还是比较长的。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250605205334582.png" alt="image-20250605205334582"></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250605210745728.png" alt="image-20250605210745728"></p>
+<h2 id="主存储器-1"><a href="#主存储器-1" class="headerlink" title="主存储器"></a>主存储器</h2><h3 id="存储器概述"><a href="#存储器概述" class="headerlink" title="存储器概述"></a>存储器概述</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>cache： 高速缓冲存储器 位于cpu和主存之间</p>
+<h4 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h4><p><strong>按在计算机中的层次分类</strong></p>
+<ol>
+<li>主存储器，又称主存、内存。cpu可以直接随机对其访问，其也可与高速缓冲存储器（Cache）和辅助存储器交换数据。</li>
+<li>辅助存储器，又称辅存、外存，辅存的内容需要调入主存才能被cpu访问。</li>
+<li>高速缓冲存储器，简称cache，位于主存与CPU之间，用来存放当前CPU经常使用的指令和数据，以便CPU能高速访问它们。</li>
+</ol>
+<p><strong>按存储介质分类</strong>：</p>
+<p>分为磁表面存储器（磁盘、磁带）、半导体存储器和光存储器（光盘）等</p>
+<p><strong>按存取方式分类</strong></p>
+<p>随机存储器（RAM）。存储器的任何一个存储单元都可以随机存取，且存储时间与存储单元的物理位置无关，RAM又分为静态RAM（SRAM）和动态RAM（DRAM）。</p>
+<p>只读存储器（ROM）。存储器的内容只能随机读出而不能写入，ROM与RAM的存取方式均为随机存取。信息写入之后就固定不变，即使断电也不会丢失。</p>
+<p>串行访问存储器。包括顺序存取存储器（如磁带）和直接存取存储器（如磁盘）。</p>
+<p><strong>按信息的可保存信法分类</strong></p>
+<ol>
+<li>易失性存储器（断电后存储信息消失）：RAM</li>
+<li>非易失性存储器（断电后信息仍然保持）：ROM、磁盘、光盘</li>
+<li>破坏性读出（某个存储单元的信息被读出时，原存储信息被破坏）：半导体存储器。</li>
+<li>非破坏性读出（某个存储单元的信息被读出时，原存储信息不被破坏）：磁盘</li>
+</ol>
+<h4 id="存储器的性能指标-1"><a href="#存储器的性能指标-1" class="headerlink" title="存储器的性能指标"></a>存储器的性能指标</h4><p>存储容量=存储字数X字长（如1Kx8位）</p>
+<p>存储字数表示存储器的地址空间大小，字长表示一次存取操作的数据量。</p>
+<p>存储速度：数据传输率 = 数据的宽度/存储周期</p>
+<p>存取时间（T~a~):存取时间是指从启动一次存储器操作到完成该操作所经历的时间，分为读出时间和写入时间</p>
+<p>存取周期（T~m~）：存取周期又称读写周期或访问周期。它是指存储器进行一次完整的读写操作所需的全部时间，即连续两次独立访问存储操作（读或者写操作）之间所需的最小时间间隔。</p>
+<p>主存带宽（B~m~）：主存带宽又称数据传输率，表示每秒从主存进出信息的最大数量，单位字/秒、字节/秒（B/s）或位/秒（b/s）</p>
+<p>注：存取时间不等于存储周期，通常存储周期大于存储时间。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606091921835.png" alt="image-20250606091921835"></p>
+<p>关键词的是<strong><u>连续</u></strong></p>
+<p>存储系统的层次结构</p>
+<p><strong>多级存储器结构</strong></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606142351339.png" alt="image-20250606142351339"></p>
+<p><strong>三级存储系统的层次结构及其构成</strong></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606143311818.png" alt="image-20250606143311818"></p>
+<p>cache位于cpu和主存之间，cpu既连接的cache也连接了主存，cpu可以直接访问这两个<br>辅存的信息必须被调入主存才可以被cpu访问</p>
+<p>cache-主存层解决了主存与cpu速度不匹配的关系</p>
+<p><strong>存储系统的层次</strong></p>
+<p>cache主存层速度接近于cache，容量和价格接近主存，</p>
+<p>主存和cache之间的数据调动由硬件自动完成，对所有程序员是透明的（感受不到其存在）；主存和辅存之间的数据调动是由硬件和操作系统共同完成的，对应用程序员是透明的。</p>
+<p>cache-主存层和主存-辅存层中，上一层的内容只是下一层内容的副本。<br>cache里面的内容全部来自主存，主存的内容全部来自辅存，只是调用拷贝。</p>
+<p><strong>半导体随机存储器</strong></p>
+<p>SRAM芯片和DRAM芯片</p>
+<p>SRAM的工作原理</p>
+<ol>
+<li>存储元：存放一个二进制位的物理器件</li>
+<li>存储单元：由地址码相同的多个存储元构成</li>
+<li>存储体：若干个存储单元的集合称为存储体。<br>静态随机存储器（SRAM）的储元是用双稳态触发器（元晶体管MOS）来记忆信息的，因此即使信息被读出后，它仍保持其原状态而不需要再生（非破坏性读出）。SRAM的存取速度快，但集成度低，功耗大，价格高，一般用于高速缓冲存储器。</li>
+</ol>
+<p>就是一般用于cache</p>
+<p>说白了就是SRAM是放在cache上记录信息的，是cache上的存储器</p>
+<p>DRAM的工作原理</p>
+<p>动态随机存储器（DRAM）是利用存储元电路中栅极电容上的电荷来存储信息的，但其电容上的电荷一般只能维持1-2ms，因此即使电源不断电，信息也会自动消失，为此，每隔一段时间必须刷新（即将存储单元的信息读出后立马写入），通常取2ms称为刷新周期。</p>
+<p>DRAM的工作原理</p>
+<p>​    常用的刷新方式有三种</p>
+<ol>
+<li>集中刷新：指在一个刷新周期内，利用一段固定的时间，依次对存储器的所有行进行逐一再生，在此期间停止对存储器的读写操作，称为“死时间”，又称为“死区”。优点是读写操作不受刷新工作的影响；缺点是在集中刷新期间（死区）不能访问存储器。</li>
+<li>分散刷新：把对每行的刷新分散到各个工作周期中。这样，一个存储器的系统工作周期分为欸两部分：前半部分用于正常读、写或保持：后半部分用于刷新。这种刷新方式增加了系统的存取周期，如存储芯片的存取周期为0.5微秒，则系统存取周期为1微秒。优点是没有死区，缺点是加长了系统的存取周期，降低了整机的速度。</li>
+<li>异步刷新：异步刷新是前两种方法的结合，它既可以缩短死时间，又能充分利用最大刷新间隔为2ms的特点。具体做法就是将刷新周期除以行数，得到两次刷新操作之间的时间间隔t，利用逻辑电路每隔时间t产生依次刷新请求。这样可以避免使CPU连续等待过长的时间，而且减少了刷新次数，从根本上提高了整机的工作效率。</li>
+</ol>
+<p>刷新是透明的 刷新不依赖于外部的访问 外部有无访问都要刷新<br>动态RAM的刷新单位是行，由芯片内部自动生成行地址<br>刷新操作类似于读操作，但又有所不同，刷新时不需要选片，即整个存储器中所有芯片同时被刷新。</p>
+<p><strong>SRAM和DRAM的比较</strong></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606154204757.png" alt="image-20250606154204757"></p>
+<p>存储器芯片的内部结构</p>
+<p>所以在我非常抽象的理解中，SRAM=cache=cpu三级缓存<br>DRAM=RAM =内存。</p>
+<p>如下图所示，存储芯片由存储体、I/O读写电路、地址译码和控制电路等部分组成。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606155019722.png" alt="image-20250606155019722"></p>
+<p>中间是存储矩阵其实就是存储体<br>A0-A11就是地址总共12个地址 分为行地址和列地址<br>X译码器把A0-A5 六位二进制转化为片选信号 来选中某一个存储芯片<br>驱动器就是将存储芯片的信息进行读出或者写入</p>
+<p><strong>存储器芯片的内部结构</strong></p>
+<p>1、存储体（存储矩阵）。存储体是存储单元的集合，它有行选择线（X）和列选择线（Y）来选择所访问单元，存储体的相同行、列上的位同时被读出或写入。（就是说如果存储字长是8位的话 这8位是同时被写入或者读出的）<br>2、地址译码器。用来将地址转换为译码输出线上的高电平，以便驱动相应的读写电路（控制读写）<br>3、IO控制电路。用以控制被选中的单元的读出或写入，具有放大信息的作用。<br>4、片选控制信号。单个芯片容量太小，往往满足不了计算机对存储器容量的要求，因此需要用一定数量的芯片进行存储器的扩展。在访问某个字时，必须“选中”该存储字所在的芯片，而其他芯片不被“选中”，因此需要有片选控制信号。<br>5、读写控制信号。根据cpu给出的读命令或者写命令，控制被选中单元进行读或者写。</p>
+<h4 id="半导体随机存储器"><a href="#半导体随机存储器" class="headerlink" title="半导体随机存储器"></a>半导体随机存储器</h4><p>只读存储器</p>
+<ol>
+<li>掩模式只读存储器（MROM）<br>其内容在生产时写入，不可改变，优点是可靠性强，集成度高；缺点灵活性差。</li>
+<li>一次可编程只读存储器（PROM）<br>允许用户用专门的设备写入内容，但一旦写入，内容无法改变</li>
+<li>可擦除可编程只读存储器（EPROM）<br>可多次写入、修改其内容，但写入时间长。</li>
+<li>Flash存储器（U盘）<br>特点是即可在不加电的情况下长期保存信息，又可在线快速擦除与重写。</li>
+<li>固态硬盘（SSD）<br>基于闪存的固态硬盘是用固态电子存储芯片陈列制成的硬盘，由控制单元和存储单元（Flash芯片）组成，优点为读写速度更快，低功耗，缺点是价格高。</li>
+</ol>
+<h3 id="主存储器与CPU的连接"><a href="#主存储器与CPU的连接" class="headerlink" title="主存储器与CPU的连接"></a>主存储器与CPU的连接</h3><p>连接原理</p>
+<ol>
+<li>主存储器通过数据总线、地址总线、和控制总线与CPU连接。</li>
+<li>数据总线的位数与工作频率的乘积正比于数据传输率。</li>
+<li>地址总线的位数决定了可寻址的最大内存空间。</li>
+<li>控制总线（读/写）指出总线周期的类型和本次输入/输出操作完成的时刻。主存储器与CPU的连接如图所示。</li>
+</ol>
+<p>数据总线的位数决定了存储字长有几位<br>地址总线的位数决定了存储容量有多大。</p>
+<p>cpu的连接</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606165145673.png" alt="image-20250606165145673"></p>
+<h4 id="主存容量的拓展"><a href="#主存容量的拓展" class="headerlink" title="主存容量的拓展"></a><strong>主存容量的拓展</strong></h4><h5 id="位拓展法"><a href="#位拓展法" class="headerlink" title="位拓展法"></a>位拓展法</h5><p>目的：使存储芯片的数据位数与CPU的数据线数相等<br>方法：将多个存储芯片的地址端、片选端和读写控制端相应并联，数据端分别引出与CPU相连。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606180257593.png" alt="image-20250606180257593"></p>
+<p>其中这个8k就是指存储单元的个数是8k个 = 8x1024<br>1位指存储字长是1位 可以存储一个0或者1 每个存储单元由一个存储元构成。<br>对于每个芯片都是和上面一样的<br>然后8kx8位就是 CPU要是8kx8位 存储单元的个数不变 仍然是8k 但是存储字长由1位变成了8位 </p>
+<p>注：仅采用位扩展时，各芯片连接地址线的方式相同，但连接数据线的方式不同，在某一时刻选中所有的芯片，所以片选信号CS要连接到所有芯片。 </p>
+<p>这里为什么不需要译码器 因为所有芯片被当成了一个整体 一根地址总线就行</p>
+<h5 id="字拓展法"><a href="#字拓展法" class="headerlink" title="字拓展法"></a>字拓展法</h5><p>目的：增加存储器中字的数量，而位数不变。<br>方法：将芯片的地址线、数据线、读写控制线相并联，由片选信号来区分各芯片的地址范围。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606181354196.png" alt="image-20250606181354196"></p>
+<p>因为是16kx8位 16k = 2^14^<br>所以<br>第一片 最低地址： 0000 0000 0000 0000 最高地址 ：0011 1111 1111 1111<br>第二片 最低地址： 0100 0000 0000 0000 最高地址：0111 1111 1111 1111<br>第二片 最低地址： 0100 0000 0000 0000 最高地址：0111 1111 1111 1111<br>第二片 最低地址： 0100 0000 0000 0000 最高地址：0111 1111 1111 1111</p>
+<p>注：仅采用字拓展时。各芯片连接地址线的方式相同，连接数据线的方式也相同，但在某一时刻是需要选中部分芯片，所以通过片选信号CS或采用译码器设计连接到相应的芯片。</p>
+<h5 id="字位同时拓展法"><a href="#字位同时拓展法" class="headerlink" title="字位同时拓展法"></a>字位同时拓展法</h5><p>目的：既增加存储字的数量，又怎加存储字长。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250606185524967.png" alt="image-20250606185524967"></p>
+<p>参考22年 考试一般最多就画4片或者6片  画多是没有意义的<br>老师只是要考察你是否理解这个概念。</p>
+<p>注：用字位同时扩展时，各芯片链接地址线的方式相同，但数据线的连接方式不同，而且需要通过片选信号CS或采用译码器设计连接到相应的芯片。</p>
+<p><strong>存储芯片的地址分配和片选</strong></p>
+<p>概念</p>
+<p>片选：CPU要实现对存储单元的访问，首先要选择存储芯片，即片选。<br>字选：接着根据地址吗在所选中的芯片中选择相应的存储单元，即字选。</p>
+<p>注：片选信号的产生主要为译码片选法；<br>自选通常是由CPU送出的N条低地址线完成的。</p>
+<p>译码片选法（n条线课连接2^n^个芯片）<br>译码片选法用除片内寻址外的高位地址线通过地址译码器芯片产生信号。</p>
+<p>例如：用8片8kx8位存储芯片组成64kx8位存储器（地址线16位，数据线8位）<br>需要8个片选信号，即之需要3个高位地址，如A~15~A~14~A~13~=000时，选中第一个芯片，A~15~A~14~A~13~=001时，选中第二个芯片，以此类推。</p>
+<p><strong>片选线的连接</strong></p>
+<p>片选线的连接是CPU与存储芯片连接的关键。存储器由许多存储芯片叠加而成，哪一片被选中完全取决于该存储芯片的片选控制端CS是否能收到来自CPU的片选有效信号。片选有效性信号与CPU的访存控制信号MREQ（低电平有效，上面加一杠就是低电平有效的意思。如果没有就是高电平有效）有关，因为只有当CPU要求访存时，才要求选中存储芯片。若CPU访问IO，则MREQ为高，表示不要求存储器工作。</p>
+<h2 id="辅存与cache"><a href="#辅存与cache" class="headerlink" title="辅存与cache"></a>辅存与cache</h2><h3 id="磁盘存储器"><a href="#磁盘存储器" class="headerlink" title="磁盘存储器"></a>磁盘存储器</h3><h5 id="磁盘设备的组成"><a href="#磁盘设备的组成" class="headerlink" title="磁盘设备的组成"></a><strong>磁盘设备的组成</strong></h5><p>磁盘驱动器：核心不见尾磁头组件和磁盘组件<br>磁盒控制器：硬盘存储器和主机的接口<br>存储区域：一块硬盘有若干记录面，每个记录面划分为若干磁道，每条磁道又划分为若干扇区，扇区（也称块）是磁盘读写的最小单位，即磁盘按快存取</p>
+<ol>
+<li>磁头数： 即记录面数，表示硬盘共有多少个磁头，磁头用于读写盘面记录的信息，一个记录面对应一个磁头。</li>
+<li>柱面数：表示硬盘每面盘片上有多少条磁道。在一个盘组中，不同记录面的相同编号（位置）的磁道构成了一个原著面</li>
+<li>扇区数：表示每条磁道上有多少个扇区。</li>
+</ol>
+<h5 id="磁盘的性能指标"><a href="#磁盘的性能指标" class="headerlink" title="磁盘的性能指标"></a><strong>磁盘的性能指标</strong></h5><p><strong>记录密度</strong></p>
+<ol>
+<li>道密度：沿磁盘半径方向单位长度上的磁道数。</li>
+<li>位密度：磁道单位长度上能记录的二进制代码位数</li>
+<li>面密度：位密度和道密度的乘积。</li>
+</ol>
+<p><strong>磁盘的容量</strong></p>
+<p>非格式化磁盘容量=磁盘记录面数x磁道数x磁道容量 = 磁盘记录面数 x 道密度 x 盘片有效半径 x位密度 x磁道的周长。</p>
+<p>格式化磁盘容量 = 磁盘记录面数 x 磁道数 x 每道扇区数 x 扇区容量</p>
+<p>注：</p>
+<ol>
+<li>格式化指磁盘划分扇区，并增加管理位</li>
+<li>格式化之后的容量变小</li>
+</ol>
+<p><strong>平均存取时间</strong></p>
+<p>平均存取时间 = 寻道时间 + 旋转延迟时间 + 传输时间</p>
+<p>寻道时间：磁头移动到目的磁道的时间；<br>旋转延迟时间：磁头定位道读写扇区的时间<br>传输时间：传输数据所花费的时间</p>
+<p><strong>数据传输率</strong></p>
+<p>假设磁盘转速位r转/秒，每条磁道容量为N字节，则数据传输率位D~r~ = rN</p>
+<p><strong>磁盘存储器的优缺点</strong></p>
+<p>优点：</p>
+<ol>
+<li>存储容量大，为价格低；</li>
+<li>记录介质可重复使用</li>
+<li>记录信息可长期保存而不丢失，甚至可脱机存档。</li>
+<li>非破坏性读出，读出时不需再生。</li>
+</ol>
+<p>缺点：存取速度慢，机械结构复杂</p>
+<p><strong>磁盘地址</strong></p>
+<p>​    主机想磁盘控制器发送寻址信息，磁盘地址一般如下入所示</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250607143054302.png" alt="image-20250607143054302"></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250607143102694.png" alt="image-20250607143102694"></p>
+<p><strong>磁盘的工作过程</strong></p>
+<p>硬盘的主要操作是寻址、读盘、写盘。每个操作都对应一个控制字，硬盘工作时，第一步是取控制字，第二部是执行控制字。<br>硬盘属于机械式部件，其读写操作是串行的，不可能在同一时刻既读又写，也不可能在同一时刻读或者写两组数据。 </p>
+<h3 id="高速缓冲存储器"><a href="#高速缓冲存储器" class="headerlink" title="高速缓冲存储器"></a>高速缓冲存储器</h3><p>Cache-主存层次结构通常来解决CPU和主存速度不匹配的问题，而支撑该方法的根本原理是：车徐访问的局部性原理。</p>
+<p>程序访问的局部原理：</p>
+<ol>
+<li>时间局部性：最近的未来要用的信息，很可能是现在正在使用的信息。如：程序中的循环。</li>
+<li>空间局部性：最近的未来要用的信息，很可能与现在正在使用的信息在存储空间上是邻近的。如：指令的顺序存放，数据的数组形式等。</li>
+</ol>
+<p>就是因为由上面的局部性，所以我们可以把主存中 现在这段时间经常或者很可能要被i访问的信息，调用道Cache里<br>这样就可以提高访问速度</p>
+<h4 id="Cache的基本工作原理"><a href="#Cache的基本工作原理" class="headerlink" title="Cache的基本工作原理"></a>Cache的基本工作原理</h4><p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250607155243413.png" alt="image-20250607155243413"></p>
+<p>相关概念</p>
+<ol>
+<li>块：为了便于Cache和主存间交换信息，Cache和主存都被划分为相等的块，Cache块又被称为Cache行，每个块由若干字节组成，块的长度称为块长（Cache行长）</li>
+<li>读操作：当CPU发出读请求时，若访问地址在Cache中命中，就将此地址换成Cache地址，直接对Cache进行读操作，与主存无关；若Cache不命中，则仍需访问主存，并把此字所在的块一次性地从主存中调入Cache，若此时Cache已满，则需根据某种替换算法，用这个块替换Cache中原来的某块信息。整个过程全部由硬件实现。值得注意的，CPU与Cache之间的数据交换以字位单位，而Cache与主存之间的数据交换则以Cache块为单位。 </li>
+<li>写操作：当CPU发出写请求时，若Cache命中，有可能遇到Cache与主存中内容不一致的问题。例如，由于CPU写Cache，把Cache某单元中的内容从X修改为Y，而主存对应单元中的内容仍然是X，没有改变。所以若Cache命中，需要按照一定写策略出力，常见的处理方法有全写法和回写法，详见本节的Cache写策略部分。</li>
+<li>命中率：CPU欲访问的信息已在Cache中的比率称为Cache的命中率。设一个程序执行期间，Cache的总命中率位N~c~,访问主存的总次数位N~m~，则命中率H为：<br>H = N~c~/(N~c~+N~m~)</li>
+<li>Cache贮存系统的平均访问时间：<br>设t~c~为民众时的Cache访问时间，t~m~为未命中时的主存访问时间，1-H表示未命中绿，则Cache主存系统的平均访问时间T~a~为：T~a~ = Ht~c~+(1-H)t~m~</li>
+</ol>
+<p>根据Cache的读、写流程，实现Cache时需解决以下关键问题：</p>
+<ol>
+<li>数查找。。如何快速判断数据是否在Cache中。</li>
+<li>地址映射。主存块如何存放在Cache中，如何将主存地址转换为Cache地址。</li>
+<li>替换策略。Cache满后，使用何种策略对Cache块进行替换或淘汰。</li>
+<li>写入策略。如何既保证贮存快和Cache快的数据一致性，又尽量提升效率。</li>
+</ol>
+<h4 id="Cache和主存的映射方法"><a href="#Cache和主存的映射方法" class="headerlink" title="Cache和主存的映射方法"></a>Cache和主存的映射方法</h4><h4 id="全相联映射及其地址变换"><a href="#全相联映射及其地址变换" class="headerlink" title="全相联映射及其地址变换"></a>全相联映射及其地址变换</h4><p>全相联地址映射是指主存中的每一块都可以映射道Cache中的任意块，如下图所示。这种映射方法是最灵活的，也是Cache利用利率最高的一种方式，但同时也是成本最高的一种方式。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250607162515023.png" alt="image-20250607162515023"></p>
+<p>对于主存中的任意一块，可以去Cache中的每一个位置，全都可以去</p>
+<p>在全相联映射方式下，贮存地址被分为两个部分：高m位表示主存快地址，低b位表示块内地址。同样，Cache的地址也分为两个部分：高c位表示Cache块地址，低b位表示块内地址。通常采用目录表记录主存块之间的映射关系，并将目录表存放在一个相联存储器中。目录表中的每个存储字主要包括三个部分：主存块号、Cache块号和有效位。有效位表示目录表中主存块号和Cache块号及案例的映射关系是否有效。目录表共有2^c^个存储字，即Cache中每个块对应一个存储字。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250607163548664.png" alt="image-20250607163548664"></p>
+<p>CPU想要访问信息 会自动生成主存地址<br>然后在目录表中查找该地址，看一下是不是在Cache中。<br>如果查到了Cache块号，且有效位为1（表示有效）<br>所以通过Cache块号和快内地址得到了Cache地址<br>重点是地址由什么组成要记清楚<br>主存地址由高m位和低b 组成 块号和块内地址<br>Cache地址由高C和低b 组成 块号和块内地址</p>
+<h4 id="直接映射及其地址变换"><a href="#直接映射及其地址变换" class="headerlink" title="直接映射及其地址变换"></a>直接映射及其地址变换</h4><p>直接映射指主存中的块只能映射到Cache中某个固定的块中，主存和Cache块的对应关系可用如下公式表示：</p>
+<p>j = i mod 2^c^</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250607164747542.png" alt="image-20250607164747542"></p>
+<p>在直接映射方式下，主存地址由三部分组成：区号（t位）、区内块号（c位）和块内地址（b位），其中，m=t+c。<br>通常用区表来保存主存块与Cache块的映射关系。区表的每个存储字主要包括两个部分；主存区号和有效位。有效位表示区表中的主存块是否已经装入Cache中。区表中共有2^c^个存储字。区表通常存在在一个小容量高速存储器中，按地址进行访问。</p>
+<p>一整个Cache大小的叫做一个区</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608002117572.png" alt="image-20250608002117572"></p>
+<p>首先我们先用块号按地址来访问区表，<br>然后和主存地址中的区号对比<br>如果相符就访问Cache，如果不相符，就访问主存。</p>
+<h4 id="组相联映射及其地址变换"><a href="#组相联映射及其地址变换" class="headerlink" title="组相联映射及其地址变换"></a>组相联映射及其地址变换</h4><p>组相联映射 = 全相联映射+直接相联映射。<br>如下图所示，主存和Cache的块先进行分组，主存和Cache每组块数相同，在地址映射时，组间为直接相联映射，组内为全相联映射。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608004503429.png" alt="image-20250608004503429"></p>
+<p>在上图中，Cache被分为2^u^组，每组2^v^块；主存中共有2^s^个区，每个区2^u^个组，即共有2^s+u^个组。主存中的每个区的第i组都只能映射到Cache中的第i组，在组内块采用全相联方式，即每个块都可以映射到Cache的第i组的任一块。</p>
+<p>CPU发出的访存地址被分解为：区号S，组号U，组内块号V‘ 和块内地址B四个部分。<br>而Cache的地址可分解为：组号U，组内块号V和块内地址B三个部分。下图给出了组相联地址变换方式。</p>
+<p>注：n路组相联是指：每组有n块。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608011006744.png" alt="image-20250608011006744"></p>
+<ol>
+<li>先根据组号定位到表项</li>
+<li>然后看区号和块号是否相符</li>
+<li>然后访问Cache</li>
+<li>然后看Cache的地址是哪来的</li>
+</ol>
+<h4 id="三种映射方法的对比"><a href="#三种映射方法的对比" class="headerlink" title="三种映射方法的对比"></a>三种映射方法的对比</h4><p>三种映射方式中 ，直接映射的每个主存块只能映射到Cache中的某一固定行；全相联映射可以映射到所有Cache行；N路组相联映射可以映射到N行。当Cache大小、主存块大小一定时：</p>
+<ol>
+<li>直接映射的命中率最低，全相联映射的命中率最高</li>
+<li>直接映射的判断开销最、所需时间最短，全相联映射的判断开销最大、所需时间最长</li>
+<li>直接映射标记所占的额外空间开销最小，全相联映射标记所占的额外空间开销最大。</li>
+</ol>
+<h4 id="Cache中主存的替换算法"><a href="#Cache中主存的替换算法" class="headerlink" title="Cache中主存的替换算法"></a>Cache中主存的替换算法</h4><p>常用的替换算法有随机（RAND）算法、先进先出（FIFO）算法、近期最少使用（LRU）算法和最不经常使用（LFU）孙发，其中最常考察的是LRU算法。</p>
+<ol>
+<li><p>随机算法：随机的确定替换的Cache块。它的实现比较简单，但未依据程序访问的局部性原理，因此可能命中率较低。</p>
+</li>
+<li><p>先进先出算法：选择最早调入的行进行替换。它比较容易实现，但也未依据程序访问的局部性原理，因为最早进入的主存块也可能是目前经常要用的。</p>
+</li>
+<li><p>近期最少使用算法（LRU）：依据程序访问的局部性原理，选择近期内长久未访问过的Cache行作为替换的行，平均命中率要比FIFO的高，是堆栈类算法。</p>
+<p>没听到说要考 所以这个规则老子先不学了</p>
+</li>
+</ol>
+<p>Cache<strong>写策略</strong></p>
+<p>因为Cache中内容未主存的副本，当对Cache内容更改时，需用写操作使Cache内容与主存内容一直，此时分两种情况：</p>
+<p><strong>Cache写命中</strong></p>
+<ol>
+<li>全写法：当CPU对Cache写命中时，必须吧数据同时写入Cache与主存中。<br>优点：能随时保持主存数据正确性。<br>缺点：增加了访问次数，降低了Cache效率。</li>
+<li>回写法：当CPU对Cache写命中那时，只把数据写入到Cache，而不立即写入主存中，只有当此块被换出时才写回主存。<br>优点：减少了访存次数。<br>缺点：存在数据不一致的隐患。</li>
+</ol>
+<p><strong>Cache写不命中</strong></p>
+<ol>
+<li>写分配法：加载贮存的块到Cache中，然后更新此Cache块。</li>
+<li>非写分配法：只写入主存，不进行调块。<br>注：非写分配法通常与全写法合用；写分配法通常与回写法</li>
+</ol>
+<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><p><strong>基本原理</strong></p>
+<p>虚拟存储器技术是将一部分硬磁盘空间作为主存来使用。此时程序员使用的地址为虚拟地址（逻辑地址），对应空间也被称为虚拟地址空间（逻辑地址空间）；主存地址称为物理地址（实地址），对应空间称为物理地址空间（实地址空间）</p>
+<p>虚拟存储蓄的基本思想是：在程序执行时，按照执行的顺序将程序的一部分调入主存，其他部分则保存在辅存中。当需要执行存放在辅存中的程序段时，由CPU按照某种调度算法以页、段为单位将其调入主存。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608015210257.png" alt="image-20250608015210257"></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608015244800.png" alt="image-20250608015244800"></p>
+<p>图上有一个错误，透明性 Cache对系统程序员和应用程序员都是透明的</p>
+<h2 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>基本概念</strong>：</p>
+<ol>
+<li>指令系统是软件和硬件的接口，反应了计算机所具备的基本功能。</li>
+<li>计算机的指令有宏指令、机器指令和微指令。宏指令是由若干条机器指令组成的软件指令，属于软件；微指令时为程序级的命令，属于硬件；机器指令（简称指令）介于微指令和宏指令之间。</li>
+</ol>
+<p>这一节要讲的就是机器指令</p>
+<p><strong>指令系统的发展</strong></p>
+<p>根据指令系统来分类计算机，主要有两类：复杂指令系统计算机（CISC）和精简指令系统计算机（RISC）<br>CISC举例：IA-32<br>RISC举例：MIPS 32<br>32指的是一条指令的字长或者一条指令的长度是32位</p>
+<p><strong>CSIC的主要特点</strong></p>
+<ol>
+<li>软件硬化：由于CPU访问主存的速度明星低于访问寄存器的速度，为了减少读取指令引起的大量主存访问。用一条功能复杂的新指令来取代原先需一串指令完成的功能。</li>
+<li>支持高级语言：当使用高级语言取代汇编语言后，增加新的复杂指令以及复杂的寻址方式来支持高级语言程序的高效实现。</li>
+<li>系统软件要求向上兼容和向后兼容，使得指令系统不断扩大。</li>
+<li>指令系统庞大，指令功能复杂，指令格式和寻址方式多样性，导致编译程序复杂，程序编译速度慢，特别是难以用优化编译技术生成高效的目标代码程序</li>
+<li>大多数指令功能复杂，且各种指令都可访问存储器，使得绝大多数指令需要多个机器周期才能完成。</li>
+<li>为了实现复杂的指令系统，通常采用微程序控制技术设计控制器，由微程序解释执行机器指令，也影响了指令的执行速度。</li>
+<li>有80%的指令只在20%的CPU运行时间内才被用到</li>
+</ol>
+<p><strong>RISC的主要特点</strong></p>
+<p>RISC的主要思想是只包含使用频率高的少量指令，并提供一些必要的指令以支持高级语言。</p>
+<ol>
+<li>优先选取使用频率较高的简单指令，避免复杂指令</li>
+<li>指令长度固定，指令格式种类少，寻址方式种类少。指令各字段的划分比较一致，各字段的功能也比较规整。</li>
+<li>只有取数/存数指令（LOAD/STORE）访问存储器，数据在寄存器和存储器之间传送。其余指令的操作都在寄存器之间进行。</li>
+<li>CPU中通用寄存器数量相当多，算术逻辑运算指令的操作数都在通用寄存器中存取。</li>
+<li>CPU采用流水线结构，大部分指令可以在一个机器周期（时钟周期）内完成。</li>
+<li>控制单元设计以硬布线控制逻辑为主，不用或少用微程序控制。</li>
+<li>采用编译优化技术，以减少程序执行时间。</li>
+</ol>
+<p>RISC以硬布线逻辑为主，不用或者少用微程序控制。</p>
+<p><strong>指令系统的功能</strong></p>
+<p>数据传送指令<br>功能：在寄存器、主存单元之间传送数据<br>举例：存储器读（LOAD）、存储器写（STORE）</p>
+<p><strong>数据运算指令</strong></p>
+<ol>
+<li>算术运算指令：加减乘除等。</li>
+<li>逻辑运算指令：与或非等。</li>
+<li>移位指令：算术移位、逻辑移位、循环移位</li>
+<li>位操作指令：位清除、位求反等。</li>
+</ol>
+<p>注：CISC指令系统支持源操作或者目的操作数在内存单元的运算类指令。<br>RISC指令系统只有存数（LOAD）和取数（STORE）可以访问内存单元，运算类指令操作数均在寄存器中。</p>
+<p><strong>程序控制指令</strong></p>
+<ol>
+<li>无条件转移：不受任何条件约束，可直接吧程序转移到某一条需要执行的指令。</li>
+<li>条件转移：根据当前指令的执行结果判断是否转移。<br>条件满足（如零标志位（Z），结果为0，Z = 1）则转移<br>条件不满足，则继续顺序执行</li>
+<li>调用与返回。即调用子程序指令（CALL）和返回原程序断点指令（RETURN）。<br>注：调用字程序时返回地址可存放在：<br>a. 寄存器内：机器内设有主用寄存器，专门用来放返回地址。<br>b.子程序的入口单元内：将返回地址存入子程序的第一个单元，然后转到第二个单元开始执行子程序<br>特点：此方法支持子程序嵌套，但无法支持子程序的递归调用（即子程序调用他本身）<br>c.堆栈栈顶：调用子程序时（CALL） 将返回地址压入堆栈，子程序返回时（RETURN），可自动从栈顶取出相应的返回地址。<br>特点：此方法可实现递归调用。</li>
+</ol>
+<h3 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h3><p>指令的基本格式如下：<img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608122406093.png" alt="image-20250608122406093"></p>
+<ol>
+<li>操作码：指出指令的操作性质，即指令完成的功能</li>
+<li>地址吗：指出操作数的地址，即操作对象所在位置，在主存储中的地址</li>
+</ol>
+<p>分别是做什么操作和对什么对象操作</p>
+<p><strong>指令分类</strong></p>
+<p>按指令中地址码字段的个数分类：三地址指令，二地址指令，一地址指令。</p>
+<p><strong>三地址指令</strong>，指令格式：<br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608123403271.png" alt="image-20250608123403271"></p>
+<p>A1 A2 为源操作数地址，A3为目的操作数地址<br>就是A1 A2 进行某种操作 然后将结果赋值给A3<br>特点：执行指令后，两个源操作数的内容不变：指令字长较长，难以支撑SS型指令。</p>
+<p><strong>二地址指令</strong><br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608123658752.png" alt="image-20250608123658752"></p>
+<p>A1既是源操作数地址也是目的操作数地址：A2为另一个源操作数地址。<br>特点：二地址指令和三地址指令能完成同样的数据处理操作<br>二地址指令通过减少一个地址码字段，可以减少指令字长度或增加地址码字段位数或为操作码扩展提供支持。<br>二地址指令执行后一个源操作数内容会被替代，影响了程序的灵活性。</p>
+<p><strong>一地址指令</strong><br>在二地址指令格式的基础上，将一个地址设定到专用寄存器中（通常为AC），便行程了一地址指令格式。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608141256585.png" alt="image-20250608141256585"></p>
+<p>特点：一地址指令字长进一步缩短；执行该指令的前提是一个操作数已存入特定位置，入AC中</p>
+<p><strong>零地址指令</strong></p>
+<p>例如：堆栈机类，空操作（NOP），停机（HLT）等指令。</p>
+<p><strong>指令字长</strong></p>
+<ol>
+<li>等长指令字结构：指令系统中所有指令字长均相等，通常为机器字长<br>特点：指令的读取和分析的硬件结构简单<br>举例：MIPS32采用单字长的登场指令字结构，指令字长为32位。</li>
+<li>变长指令字结构：各种指令长度不等，如：半字长，单字长，双字长<br>特点：结构灵活，能充分利用指令信息位，但指令读取控制及分析的逻辑复杂。<br>举例：LA-32采用变长指令字结构，指令长度取1-16倍字节</li>
+</ol>
+<h4 id="操作码扩展技术"><a href="#操作码扩展技术" class="headerlink" title="操作码扩展技术"></a>操作码扩展技术</h4><p><strong>定长操作码</strong><br>指操作码的位数是固定的，比如固定四位或者固定八位</p>
+<p>优点：硬件设计，指令译码结构简单，译码时间短。<br>缺点：浪费了许多信息位<br>举例RISC普遍为此结构，MIPS32操作码固定6位。</p>
+<p><strong>变长操作码</strong></p>
+<p>等长拓展法（保留一个码点/状态、标志）</p>
+<p>以4-8-12拓展法为例：</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608142434763.png" alt="image-20250608142434763"></p>
+<p>这里好像也不考 所以也先不学了。</p>
+<h3 id="寻址方式（重点）"><a href="#寻址方式（重点）" class="headerlink" title="寻址方式（重点）"></a>寻址方式（重点）</h3><p>指令系统中采用不同寻址方式的主要目的<br>缩短指令长度，扩大寻址范围<br>提高程序灵活性。</p>
+<h4 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h4><ol>
+<li>形式地址（符号地址）：指令中显示给出的地址。</li>
+<li>有效地址（逻辑地址）：操作数活指令实际的地址。</li>
+<li>有效地址（EA）：由寻址方式和形式地址共同确定。</li>
+</ol>
+<h4 id="指令寻址"><a href="#指令寻址" class="headerlink" title="指令寻址"></a><strong>指令寻址</strong></h4><ol>
+<li>顺序寻址：不需要再指令中显示给下一条指令地址的信息，而是通过程序计数器（PC）加“1”，自动形成下一条指令的地址。<br>（注：次数的+1 并不是真正的+1 ，加的是指令的字长）</li>
+<li>跳跃寻址：由转移类指令给出吓一跳指令的地址信息（性质方式和形式地址），类似数据寻址多种寻址方式。</li>
+<li>数据寻址：根据数据所在位置分为：<br>立即寻址：操作数直接在指令的地址码字段给出。</li>
+</ol>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608165430283.png" alt=" "></p>
+<p>这个I就是操作数 在指令中直接给出</p>
+<p>特点：形式地址I不是操作数地址，而是操作数本身<br>有效地址（EA）为该指令在主存单元的地址<br>执行阶段不必访存，执行速度快</p>
+<p>4.<strong>寄存器寻址</strong>：源操作数以及在通用寄存器中，或者操作结果要存回寄存器中</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608170824298.png" alt="image-20250608170824298"></p>
+<p>特点：<br>EA=R~i~(R~i~为通用寄存器编号)<br>寄存器寻址方式执行过程中也无需访问，执行时间短<br>寄存器编号为暑校，指令字长短，节省了存储空间。</p>
+<h4 id="存储器寻址"><a href="#存储器寻址" class="headerlink" title="存储器寻址"></a><strong>存储器寻址</strong></h4><p>数据存储在存储器中，根据有效地址的不同形成方式，分为</p>
+<ol>
+<li>直接寻址：指令中地址码字段给出的形式地址 就是操作数或下一条的有效地址<br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608190009738.png" alt="image-20250608190009738"><br>特点：EA = A<br>获取有效地址比较简单<br>指令执行期间，需访问一次主存<br>指令字长限制了形式地址字段的位数，可寻址范围较小。</li>
+<li>间接寻址（存储器间接寻址）<br>指令中的形式地址是操作数地址的地址，需访问两次或两次以上主存才能得到操作数（或指令）</li>
+</ol>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608191607511.png" alt="image-20250608191607511"></p>
+<p>特点：一次间接时，EA = A<br>寻址范围取决于主存字长m，一次间接寻址最大范围2^m^字<br>间接寻址为程序设计提供很好的灵活性，但要多次访存，执行速度较慢。</p>
+<p>3.寄存器间接寻址：形式地址给出的是通用寄存器的编号为R</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608192049078.png" alt="image-20250608192049078"></p>
+<p>特点：EA=R~i~<br>寄存器间接寻址的寻址范围取决于寄存器的位数（即机器字长n）<br>MIPS机器受流水线结构限制，其指令系统不支持间接寻址方式。</p>
+<h4 id="4-偏移寻址：直接寻址和寄存器间接寻址的结合。"><a href="#4-偏移寻址：直接寻址和寄存器间接寻址的结合。" class="headerlink" title="4.偏移寻址：直接寻址和寄存器间接寻址的结合。"></a>4.偏移寻址：直接寻址和寄存器间接寻址的结合。</h4><p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608193306674.png" alt="image-20250608193306674"></p>
+<p>特点：偏移寻址方式既要给出形式地址A（偏移量），也要指出引用哪一个寄存器R~i~的内容实现便宜，即EA = R~i~+A<br>此外R可是专用寄存器也可是通用寄存器，A为有符号整数（通常用补码表示）</p>
+<ol>
+<li>相对寻址<br>特点：使用专门的程序计数器PC，EA = PC+A ，寻址范围取决于偏移量A的位数k<br>只要操作数或下一条指令与当前指令的相对距离不变，无论程序放到主存中的哪一段区域都可以正确执行，既有利于程序在内存中浮动。</li>
+<li>编址寻址：<br>特点：采用专用变址寄存器R~x~或通用寄存器R~i~<br>EA = R~x~+A或EA = R~i~+A<br>变址寻址常用于数组或字符串操作，即，寄存器中存放的是修改量<br>寻址完成后，寄存器的内容会自动调整。<br>地址范围由寄存器的位数决定</li>
+<li>基址寻址<br>特点：EA = R~b~+A<br>基址寻址通常用于实现操作系统对用户的动态定位</li>
+<li>段寻址：基址寻址的一种特例，用于地址长度超过其字长的场合。</li>
+</ol>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608195406721.png" alt="image-20250608195406721"></p>
+<h4 id="堆栈寻址"><a href="#堆栈寻址" class="headerlink" title="堆栈寻址"></a>堆栈寻址</h4><p>存储器堆栈在主存中开辟一块区域，一端浮动称为栈底，另一端浮动称为栈顶。栈顶书数据唯一的出入口。<br>堆栈指针（SP）始终指向栈顶，依据先进后出的原则存储数据。栈底栈顶有两种设定方法。</p>
+<ol>
+<li>栈底设在堆栈区域的低地址端，栈顶设在高地址端，堆栈向上生长</li>
+<li>栈底设在高地址端，栈顶在低地址端，向下生长。</li>
+</ol>
+<p>存储器堆栈主要有两种实现方法：<br>1、指向栈顶的一个空单元<br>当堆栈为空时，栈底和栈顶为同一单元<br>2、sp指向栈顶的一个非空单元</p>
+<h4 id="复合寻址"><a href="#复合寻址" class="headerlink" title="复合寻址"></a>复合寻址</h4><p>将两种以上寻址方式联合起来使用</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608195900391.png" alt="image-20250608195900391"></p>
+<h2 id="寻址方式重构"><a href="#寻址方式重构" class="headerlink" title="寻址方式重构"></a>寻址方式重构</h2><p>上面说的很不清楚 我自己重新理了一遍</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/d4f6dcfea27c2a1e05a269160b088f0.png" alt="d4f6dcfea27c2a1e05a269160b088f0"></p>
+<h2 id="数据通路"><a href="#数据通路" class="headerlink" title="数据通路"></a>数据通路</h2><h3 id="CPU概述"><a href="#CPU概述" class="headerlink" title="CPU概述"></a>CPU概述</h3><p>CPU<strong>的功能</strong></p>
+<ol>
+<li>指令控制：即程序的顺序控制，包括取指令、分析指令、执行指令操作</li>
+<li>操作控制：指令的执行由多个操作信号控制，这些操作信号即由CPU产生。</li>
+<li>时间控制：对各种操作加以时间控制。</li>
+<li>数据加工：数据的算数运算和逻辑运算。</li>
+<li>中断处理：处理计算机允许时发生的异常及特殊情况</li>
+</ol>
+<p>CPU<strong>的结构</strong></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250608230944698.png" alt="image-20250608230944698"></p>
+<p>运算器：计算机对数据进行加工处理的中心。</p>
+<ol>
+<li>算术逻辑单元（ALU）：运算器的核心部件，主要功能是进行算数/逻辑运算。</li>
+<li>暂存寄存器：暂存从主存读来的数据，对应用程序员来说是透明的。</li>
+<li>累加寄存器：是一个通用寄存器，可作为加法运算的一个输入端，也可暂存ALU运算的结果。</li>
+<li>通用寄存器组：用于存放操作数和各种地址信息。</li>
+<li>程序状态字寄存器（PSW）：保留由算术逻辑运算指令或测试指令的结果而建立的各种状态信息，入溢出标志（OF）、符号标志（SF）、零标志（ZF）、进位标志（CF）等。</li>
+<li>移位器：对操作数或运算结果进行移位运算。</li>
+<li>计数器：控制乘除运算的操作步骤。</li>
+</ol>
+<p>控制器：基本功能为通过一系列微操作来执行指令</p>
+<ol>
+<li>程序计数器。用于指出下一条指令在主存中的存放地址。CPU根据PC的内容取主存中取指令。因程序中指令（通常）是顺序执行的，所以PC有自增功能。</li>
+<li>指令寄存器。用于保存当前正在执行的那条指令。</li>
+<li>指令译码器。仅对操作码字段进行译码，向控制器提供特定的操作信号。</li>
+<li>存储器地址寄存器。用于存放要访问的主存单元的地址。</li>
+<li>cu能出其数据寄存器。用于存放向贮存写入的信息或从主存读出的信息。</li>
+<li>时序系统。用于产生各种时许信号，它们都由统一时钟（CLOCK）分频得到。</li>
+<li>微操作信号发生器。根据IR的内容（指令）、PSW的内容（状态信息）及时序信号，产生控制整个计算机系统所需的各种控制信号，其结构有组合逻辑型和存储逻辑型两种。</li>
+</ol>
+<p>注：对用户透明的寄存器：MAR、MDR、IR<br>对用户不透明的寄存器：通用寄存器组、程序状态字寄存器</p>
+<p>CPU从主存取指令时，总是根据程序计数器PC得到主存地址。</p>
+<h3 id="数据通路-1"><a href="#数据通路-1" class="headerlink" title="数据通路"></a>数据通路</h3><h4 id="指令执行过程"><a href="#指令执行过程" class="headerlink" title="指令执行过程"></a>指令执行过程</h4><p>指令周期</p>
+<ol>
+<li>定义：CPU从主存中去除并执行一条指令的时间</li>
+<li>特点<br>1、指令周期通常用若干机器周期表示，一个机器周期又包括若干时钟周期（节拍或者T周期，为CPU操作的最基本单位）<br>2、每个指令周期内的机器周期数可以不等，每个机器周期内的节拍也可以不等。<br><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609002725862.png" alt="image-20250609002725862"></li>
+</ol>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609002813595.png" alt="image-20250609002813595"></p>
+<p>特点：完整的指令周期包括：取址、间址、执行、中断4个周期。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609002921544.png" alt="image-20250609002921544"></p>
+<p>取址周期：取出指令。<br>间址周期：取有效地址。<br>执行周期：取操作数。<br>中断周期：保护程序断点。</p>
+<p>CPU通过4个标志触发器FE、IND、EX和INT来区分取址、间址、执行、中断周期。</p>
+<p><strong>指令周期的数据流</strong></p>
+<p>定义：即在指令执行的不同阶段，根据指令要求依次访问的数据序列。</p>
+<p><strong>取指周期</strong>：根据PC中的地址从主存中取出指令代码并存放于IR中。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609003324012.png" alt="image-20250609003324012"></p>
+<p>数据流：<br>PC-MAR-地址总线-主存<br>CU发出读命令-控制总线-主存<br>主存-数据总线-MDR-IR<br>CU发出控制信号-PC内容+1</p>
+<p><strong>间址周期</strong></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609003855708.png" alt="image-20250609003855708"></p>
+<p>数据流：</p>
+<ol>
+<li>IR-MAR-地址总线-主存</li>
+<li>CU-控制总线-主存</li>
+<li>主存-数据总线-MDR<br>其中IR取出的是真实的数据地址</li>
+</ol>
+<p><strong>执行周期</strong></p>
+<p>取操作数，并根据IR中指令字的操作码通过ALU操作产生执行效果。<br>数据流：不同指令执行周期操作不同，无统一的数据流。</p>
+<p><strong>中断周期</strong></p>
+<p>处理中断请求。<br>假设程序断点存入堆栈中，并用SP指向栈顶地址，且进栈操作作为先修改栈顶指针，后存入数据，且默认为向下生长型。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609004949298.png" alt="image-20250609004949298"></p>
+<p>数据流</p>
+<ol>
+<li>CU将SP-1 - MAR-地址总线-主存</li>
+<li>CU发出写命令-控制总线-主存</li>
+<li>PC-MDR-数据总线-主存（程序断点存入主存）</li>
+<li>CU（中断服务程序的入口地址）-PC</li>
+</ol>
+<h4 id="指令执行方案"><a href="#指令执行方案" class="headerlink" title="指令执行方案"></a>指令执行方案</h4><p>单指令周期：对所有指令都选用相同的执行时间来完成。<br>特点：指令之间串行执行，即下一条指令只能在前一条指令执行结束后才能启动。<br>指令周期取决于执行时间最长的指令的执行时间，降低了整个系统的运行速度。</p>
+<p>多指令周期：对不同类型的指令选用不同的执行步骤。<br>特点：指令之间的串行操作<br>不同指令的周期数可不同，不同指令的时钟周期数也可不同。</p>
+<p>流水线方案：指令之间并行执行，力争在每个时钟周期完成一条指令的执行过程。</p>
+<p>机器字长是CPU一次运算的最多位数<br>指令子长取决于操作码位数和操作表长度，与机器字长无必然联系<br>指令字长一般取字节或存储字长的整数倍，不一定等于存储字长。</p>
+<h4 id="数据通路的功能"><a href="#数据通路的功能" class="headerlink" title="数据通路的功能"></a>数据通路的功能</h4><p><strong>数据通路的定义</strong><br>数据在功能部件之间传送的路径，包括数据通路上流经的部件和中断处理逻辑等。</p>
+<p><strong>数据通路的功能</strong><br>实现CPU内部运算器与寄存器及寄存器之间的数据交换。<br>说白了就是数据的流通路径</p>
+<h4 id="数据通路的基本结构"><a href="#数据通路的基本结构" class="headerlink" title="数据通路的基本结构"></a>数据通路的基本结构</h4><p><strong>单总线结构</strong></p>
+<p>连接各部件的总线只有一条</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609011508329.png" alt="image-20250609011508329"></p>
+<p>特点：结构相对简单，但数据传输存在较多的冲突现象，性能较低<br>降低了操作间的并行性，导致指令周期变长<br>ALU的两个数据输入端要设置一个暂存器（A，B）或在ALU的一个数据输入端和输入输出端设置暂存器。</p>
+<p><strong>双总线结构</strong></p>
+<p>连接各个部件的总线有两条</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609011921260.png" alt="image-20250609011921260"></p>
+<p>特点：<br>提高了操作间的并行性，缩短了指令周期，但增加了硬件复杂性和成本。<br>ALU的两个操作数直接分别从两条总线上获得，因此输入两个输入端不需要暂存器，但输出端仍需要暂存器（ALU结果要输出到目的寄存器中）。</p>
+<p><strong>典型单总线结构的数据通路</strong></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609013231114.png" alt="image-20250609013231114"></p>
+<p>寄存器之间的数据传送<br>寄存器之间的数据传送可通过CPU内部总线完成，在上图中，某寄存器AX的输出和输入分别由AXout和AXin控制，这里以PC寄存器为例，把PC内容送至MAR，实现传送操作的流程及控制信号为：</p>
+<p>PC - Bus PCout有效，PC内容送总线<br>Bus-MAR MARin 有效 总线内容送MAR</p>
+<p>主存与CPU之间的数据传送<br>主存与CPU之间的数据传送也要借助CPU内部总线完成。现以CPU从主存读取指令为例说明数据在数据通路中的传送过程。实现传送操作的流程及控制信号为：<img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609023018625.png" alt="image-20250609023018625"></p>
+<p><strong>中断周期</strong></p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609023118081.png" alt="image-20250609023118081"></p>
+<p>执行算数或逻辑运算</p>
+<p>执行算术或逻辑操作时，由于ALU本身没有内部存储功能的 组合电路，因此如要执行加法运算，相加的两个数必须在ALU的两个输入端同时有效。上图中的暂存器即用于该目的。先将一个操作数从 CPU内部)线送入暂存器保存，的内容在 ALU 的左输入端始终有效，再将另一个操作数经总线直接送到 ALU的右输入端。这样两个操器Z中。作数都送入了ALU，运算结果暂存在暂存器Z中</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609023306113.png" alt=" "></p>
+<h3 id="指令流水线"><a href="#指令流水线" class="headerlink" title="指令流水线"></a>指令流水线</h3><h4 id="基本概念-2"><a href="#基本概念-2" class="headerlink" title="基本概念"></a>基本概念</h4><p>提高处理及并行性方法：</p>
+<ol>
+<li>时间上的并行技术，将一个任务分解为及格不同的子阶段，每个阶段在不同的功能部件上并行执行，一边在同一时刻能够执行多个任务，从而提升系统性能，此方法称为流水线技术</li>
+<li>空间上的并行性，在一个处理机内设置多个执行相同任务的功能部件，并让这些功能部件并行工作，这样的处理及出纳为超标量处理机。</li>
+</ol>
+<p>指令流水的定义</p>
+<p>​    将一条指令的执行过程分为若干阶段，每个阶段都由相同的功能部件完成，视其为流水段，则指令的执行过程就构成了一条指令流水线。</p>
+<p>后面的部分 也没在老头最后的波纹里 所以我也不学了</p>
+<h2 id="控制器-总线-输入输出系统"><a href="#控制器-总线-输入输出系统" class="headerlink" title="控制器 总线 输入输出系统"></a>控制器 总线 输入输出系统</h2><h3 id="控制器结构"><a href="#控制器结构" class="headerlink" title="控制器结构"></a>控制器结构</h3><p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609024827771.png" alt="image-20250609024827771"></p>
+<p>组成：包括寄存器和译码器<br>时序信号产生器<br>控制单元CU，是控制器的核心，发出整机运行所需的全部控制信号。</p>
+<h4 id="控制器的功能"><a href="#控制器的功能" class="headerlink" title="控制器的功能"></a>控制器的功能</h4><ol>
+<li>从主存中取出一条指令，并指出下一条指令在主存中的位置</li>
+<li>对指令译码产生操作控制信号</li>
+<li>指挥控制各个部件之间的数据流动方向</li>
+</ol>
+<p>控制单元的设计主要有两种方法（它们的区别在于如何产生微操作）：硬布线（组合逻辑）设计方法和微程序（存储逻辑）设计方法。</p>
+<h3 id="控制方法"><a href="#控制方法" class="headerlink" title="控制方法"></a>控制方法</h3><h4 id="同步控制方法"><a href="#同步控制方法" class="headerlink" title="同步控制方法"></a>同步控制方法</h4><p>指系统有一个统一的时钟，所有的控制信号均来自统一的时钟信号。通常以最长的微操作序列和最繁琐的微操作作为表尊，采取完全统一的，具有相同时间间隔和相同数目的节拍作为机器周期来运行不同的指令。<br>优点： 控制电路简单<br>缺点：运行速度慢。</p>
+<h4 id="异步控制方法"><a href="#异步控制方法" class="headerlink" title="异步控制方法"></a>异步控制方法</h4><p>异步控制方式不存在基准时标信号，各部件按自身固有的速度工作，通过应答方式进行联络。<br>一部控制方式的优点是运行速度快，缺点是控制电路比较复杂。</p>
+<h4 id="联合控制方式"><a href="#联合控制方式" class="headerlink" title="联合控制方式"></a>联合控制方式</h4><p>联合控制方式是介于同步和异步之间的一种折中。这种方式对各种不同的指令的微操作实行大部分采用同步控制、小部分采用异步控制的办法。</p>
+<h4 id="微程序控制器"><a href="#微程序控制器" class="headerlink" title="微程序控制器"></a>微程序控制器</h4><p>基本思想：</p>
+<p>将每条机器指令编写成一个微程序，每个微程序包含若干个微指令，每条微指令对应一个或几个微操作命令。将微程序存入控制存储器中，然后用寻址一般指令的办法寻址每个微程序中的微指令。</p>
+<p>相关概念</p>
+<p>微操作：一条机器指令可以发呢姐陈一系列微操作，其是计算机中最基本的不可再分解的操作。</p>
+<p>微命令：在微程序控制的计算机中，将控制部件向执行部件发出的各种控制命令称为微命令，其是构成控制序列的最小单位。<br>微命令分为相容性微命令和互斥性微命令。</p>
+<p>相容性微命令：可以同时产生，共同完成某一些微操作的微命令<br>互斥性为微命令：不允许同时出现的微命令。</p>
+<p>注:a.微命令和微操作是一 一对应的，微命令是微操作的控制信号，微操作是微命令的执行过程。<br>b. 微命令的相容性和互斥性是相对的，一个微命令可以与一些微命令相容，和另一些微命令互斥。</p>
+<p>微指令：若干微命令的集合，存放微指令的控制存储器的单位地址称为微地址。<br>一条微指令通常包含两大部分：<br>a。操作控制字段（微操作字段）：用于产生某一步操作所需的各种操作控制信号。<br>b. 顺序控制字段（微地址码字段）：用于控制产生下一条要执行的微指令地址。</p>
+<p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609030253077.png" alt="image-20250609030253077"></p>
+<p>微周期：指令从控制存储器中读取一条微指令并执行微操作所需的时间</p>
+<p><strong>控制存储器</strong><br>用于存放微程序，其在CPU内部，用ROM实现。<br><strong>程序和微程序</strong><br>程序是指令的有序集合，用于完成特定的功能：微程序是微指令的有序集合，一条指令的功能由一段微程序来完成。</p>
+<p>注：通常，一条机器指令对应一个微程序。由于任何一条机器指令的取指令操作都是相同的因此可将取指令操作的微命令统一编成一个微程序，这个微程序只负责将指令从主存单元中取出并送至指令寄存器。</p>
+<h3 id="考点！硬布线与微程序控制器的对比"><a href="#考点！硬布线与微程序控制器的对比" class="headerlink" title="考点！硬布线与微程序控制器的对比"></a>考点！硬布线与微程序控制器的对比</h3><p><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/image-20250609030646131.png" alt="image-20250609030646131"></p>
+<h1 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h1><h2 id="计算机性能指标"><a href="#计算机性能指标" class="headerlink" title="计算机性能指标"></a>计算机性能指标</h2><p>若计算机字长16位，主存地址空间大小为64KB 按字节编址，则主存寻址范围是（   ）。<br>A、64k B、64kB C、32k D、32kB</p>
+<p>首先注意这类题按字节编址 还是按字编址<br>如果按字节编址，就是每8位二进制作为一个存储字长，<br>如果是按字编址，因为字长是16位，所以是每16位二进制作为一个存储字长<br>另外注意题目里问的 主存寻址的范围是一个没有单位的范围。<br>如果问的是空间大小或者容量就是有单位的。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">薯片菌</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/ee4c97fd.html">http://example.com/posts/ee4c97fd.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">薯片菌のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/blogpicture002.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/31bf2518.html" title="数据结构学习笔记"><img class="cover" src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/blogpicture001.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据结构学习笔记</div></div></a></div><div class="next-post pull-right"><a href="/posts/9526375f.html" title="C#学习笔记"><img class="cover" src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/wp13435859-anime-scenery-4k-pc-wallpapers.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C#学习笔记</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://imgbed.yiyunt.cn/img/220" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">薯片菌</div><div class="author-info__description">记录学习的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Darksidelr1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Darksidelr1" target="_blank" title="Github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-gitHub"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=799672044@qq.com" target="_blank" title="Email"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/f5187fc4b34c0eaf76f260e92939ccd.png" target="_blank" title="Wechat"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-rss"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/9236233?spm_id_from=333.1007.0.0" target="_blank" title="BiliBili"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bilibili"></use></svg></a><a class="social-icon faa-parent animated-hover" href="tencent://Message/?Uin=799672044&amp;amp;websiteName=local.edu.com:8888=&amp;amp;Menu=yes" target="_blank" title="QQ"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-QQ1"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">薯片の博客小站（监修ing）</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E7%BB%84%E7%90%86%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">机组理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">计算机概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E8%A6%81%E7%9A%84%E7%A1%AC%E4%BB%B6%E9%83%A8%E4%BB%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">计算机重要的硬件部件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">冯诺依曼机的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">主存储器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">运算器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.1.1.4.1.</span> <span class="toc-text">控制器的组成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.1.4.2.</span> <span class="toc-text">硬件工作过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">计算机系统的层次结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">层次结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">相关概念</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.1.3.</span> <span class="toc-text">计算机的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">存储器的性能指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">CPU的性能指标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.</span> <span class="toc-text">数据的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%88%B6%E4%B8%8E%E7%BC%96%E7%A0%81"><span class="toc-number">1.2.1.</span> <span class="toc-text">数制与编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">进制转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E7%A0%81"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">编码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.2.</span> <span class="toc-text">定点数的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">原码表示法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">反码表示法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">补码表示法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">移码表示法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E3%80%81%E5%8F%8D%E3%80%81%E8%A1%A5%E3%80%81%E7%A7%BB%E7%A0%81%E7%9A%84%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="toc-number">1.2.3.</span> <span class="toc-text">原、反、补、移码的表示范围</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0%E7%9A%84%E5%8E%9F%E3%80%81%E5%8F%8D%E3%80%81%E8%A1%A5%E3%80%81%E7%A7%BB%E7%A0%81%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">定点整数的原、反、补、移码表示范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E5%B0%8F%E6%95%B0%E7%9A%84%E5%8E%9F%E3%80%81%E5%8F%8D%E3%80%81%E8%A1%A5%E7%A0%81%E7%9A%84%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">定点小数的原、反、补码的表示范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.4.</span> <span class="toc-text">浮点数的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%84%E6%A0%BC%E5%8C%96%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">1.2.5.</span> <span class="toc-text">规格化浮点数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8F%B3%E8%A7%84%E8%A7%84%E8%8C%83%E5%8C%96%EF%BC%88Right-Normalization%EF%BC%89"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">2. 右规规范化（Right Normalization）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">1.2.6.</span> <span class="toc-text">总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IEEE-754-%E6%A0%87%E5%87%86"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">IEEE  754 标准</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.</span> <span class="toc-text">数据的运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.1.</span> <span class="toc-text">定点数的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E7%9A%84%E8%88%8D%E5%85%A5%E5%A4%84%E7%90%86"><span class="toc-number">1.3.2.</span> <span class="toc-text">误差的舍入处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%A2%E5%87%BA%E7%9A%84%E5%88%A4%E6%96%AD%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">溢出的判断方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.4.</span> <span class="toc-text">定点数加减运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F-%E8%A1%A5%E7%A0%81%E7%9A%84%E4%B9%98%E6%B3%95%E8%BF%90%E7%AE%97-%E8%80%81%E5%B8%88%E8%AF%B4%E5%A5%BD%E5%83%8F%E4%B8%8D%E8%80%83"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">原&#x2F;补码的乘法运算 老师说好像不考</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%A4%E6%B3%95%E8%BF%90%E7%AE%97%E4%B9%9F%E6%98%AF%E4%B8%80%E6%A0%B7-%E6%89%80%E4%BB%A5%E6%88%91%E5%85%88%E4%B8%8D%E5%AD%A6%E4%BA%86"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">除法运算也是一样 所以我先不学了</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.5.</span> <span class="toc-text">浮点数的运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">浮点数的加减运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%88%8D%E5%85%A5"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">舍入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95%E5%99%A8%E4%B8%8EALU"><span class="toc-number">1.3.6.</span> <span class="toc-text">加法器与ALU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">加法器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8%EF%BC%88FA%EF%BC%89"><span class="toc-number">1.3.6.1.1.</span> <span class="toc-text">一位全加器（FA）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%B2%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="toc-number">1.3.6.1.2.</span> <span class="toc-text">串行加法器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="toc-number">1.3.6.1.3.</span> <span class="toc-text">并行加法器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ALU"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">ALU</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8-1"><span class="toc-number">1.4.</span> <span class="toc-text">主存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">存储器概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">存储器的分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87-1"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">存储器的性能指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E5%AF%BC%E4%BD%93%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.4.1.4.</span> <span class="toc-text">半导体随机存储器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8ECPU%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text">主存储器与CPU的连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%AE%B9%E9%87%8F%E7%9A%84%E6%8B%93%E5%B1%95"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">主存容量的拓展</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%8D%E6%8B%93%E5%B1%95%E6%B3%95"><span class="toc-number">1.4.2.1.1.</span> <span class="toc-text">位拓展法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E6%8B%93%E5%B1%95%E6%B3%95"><span class="toc-number">1.4.2.1.2.</span> <span class="toc-text">字拓展法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E4%BD%8D%E5%90%8C%E6%97%B6%E6%8B%93%E5%B1%95%E6%B3%95"><span class="toc-number">1.4.2.1.3.</span> <span class="toc-text">字位同时拓展法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%85%E5%AD%98%E4%B8%8Ecache"><span class="toc-number">1.5.</span> <span class="toc-text">辅存与cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.5.1.</span> <span class="toc-text">磁盘存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E8%AE%BE%E5%A4%87%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.5.1.0.1.</span> <span class="toc-text">磁盘设备的组成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.5.1.0.2.</span> <span class="toc-text">磁盘的性能指标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.5.2.</span> <span class="toc-text">高速缓冲存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">Cache的基本工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache%E5%92%8C%E4%B8%BB%E5%AD%98%E7%9A%84%E6%98%A0%E5%B0%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">Cache和主存的映射方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84%E5%8F%8A%E5%85%B6%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">全相联映射及其地址变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84%E5%8F%8A%E5%85%B6%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">直接映射及其地址变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84%E5%8F%8A%E5%85%B6%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2"><span class="toc-number">1.5.2.5.</span> <span class="toc-text">组相联映射及其地址变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%98%A0%E5%B0%84%E6%96%B9%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">1.5.2.6.</span> <span class="toc-text">三种映射方法的对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache%E4%B8%AD%E4%B8%BB%E5%AD%98%E7%9A%84%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-number">1.5.2.7.</span> <span class="toc-text">Cache中主存的替换算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.5.3.</span> <span class="toc-text">虚拟存储器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.6.</span> <span class="toc-text">指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.6.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">指令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%A0%81%E6%89%A9%E5%B1%95%E6%8A%80%E6%9C%AF"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">操作码扩展技术</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">1.6.3.</span> <span class="toc-text">寻址方式（重点）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%AF%BB%E5%9D%80"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">指令寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%AF%BB%E5%9D%80"><span class="toc-number">1.6.3.3.</span> <span class="toc-text">存储器寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%81%8F%E7%A7%BB%E5%AF%BB%E5%9D%80%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80%E5%92%8C%E5%AF%84%E5%AD%98%E5%99%A8%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80%E7%9A%84%E7%BB%93%E5%90%88%E3%80%82"><span class="toc-number">1.6.3.4.</span> <span class="toc-text">4.偏移寻址：直接寻址和寄存器间接寻址的结合。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E6%A0%88%E5%AF%BB%E5%9D%80"><span class="toc-number">1.6.3.5.</span> <span class="toc-text">堆栈寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E5%AF%BB%E5%9D%80"><span class="toc-number">1.6.3.6.</span> <span class="toc-text">复合寻址</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F%E9%87%8D%E6%9E%84"><span class="toc-number">1.7.</span> <span class="toc-text">寻址方式重构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF"><span class="toc-number">1.8.</span> <span class="toc-text">数据通路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU%E6%A6%82%E8%BF%B0"><span class="toc-number">1.8.1.</span> <span class="toc-text">CPU概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF-1"><span class="toc-number">1.8.2.</span> <span class="toc-text">数据通路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.8.2.1.</span> <span class="toc-text">指令执行过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%96%B9%E6%A1%88"><span class="toc-number">1.8.2.2.</span> <span class="toc-text">指令执行方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">1.8.2.3.</span> <span class="toc-text">数据通路的功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.8.2.4.</span> <span class="toc-text">数据通路的基本结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">1.8.3.</span> <span class="toc-text">指令流水线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-2"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">基本概念</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8-%E6%80%BB%E7%BA%BF-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.9.</span> <span class="toc-text">控制器 总线 输入输出系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.9.1.</span> <span class="toc-text">控制器结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">控制器的功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.9.2.</span> <span class="toc-text">控制方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">同步控制方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">异步控制方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%94%E5%90%88%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">1.9.2.3.</span> <span class="toc-text">联合控制方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.9.2.4.</span> <span class="toc-text">微程序控制器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%83%E7%82%B9%EF%BC%81%E7%A1%AC%E5%B8%83%E7%BA%BF%E4%B8%8E%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">1.9.3.</span> <span class="toc-text">考点！硬布线与微程序控制器的对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">练习题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">2.1.</span> <span class="toc-text">计算机性能指标</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/43db8671.html" title="安卓开发学习笔记"><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安卓开发学习笔记"/></a><div class="content"><a class="title" href="/posts/43db8671.html" title="安卓开发学习笔记">安卓开发学习笔记</a><time datetime="2025-05-09T23:53:58.000Z" title="发表于 2025-05-10 07:53:58">2025-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/31bf2518.html" title="数据结构学习笔记"><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/blogpicture001.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构学习笔记"/></a><div class="content"><a class="title" href="/posts/31bf2518.html" title="数据结构学习笔记">数据结构学习笔记</a><time datetime="2025-04-30T23:53:58.000Z" title="发表于 2025-05-01 07:53:58">2025-05-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ee4c97fd.html" title="计组学习笔记"><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/blogpicture002.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计组学习笔记"/></a><div class="content"><a class="title" href="/posts/ee4c97fd.html" title="计组学习笔记">计组学习笔记</a><time datetime="2025-03-31T23:53:58.000Z" title="发表于 2025-04-01 07:53:58">2025-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9526375f.html" title="C#学习笔记"><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/wp13435859-anime-scenery-4k-pc-wallpapers.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#学习笔记"/></a><div class="content"><a class="title" href="/posts/9526375f.html" title="C#学习笔记">C#学习笔记</a><time datetime="2025-01-23T23:53:58.000Z" title="发表于 2025-01-24 07:53:58">2025-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1fa48c3e.html" title="QT图形界面开发学习笔记"><img src="https://spjblogimg-1329562662.cos.ap-shanghai.myqcloud.com/img/wp10824800-winter-nature-anime-wallpapers.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QT图形界面开发学习笔记"/></a><div class="content"><a class="title" href="/posts/1fa48c3e.html" title="QT图形界面开发学习笔记">QT图形界面开发学习笔记</a><time datetime="2025-01-10T23:53:58.000Z" title="发表于 2025-01-11 07:53:58">2025-01-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 薯片菌</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.shupianjun.fun/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.shupianjun.fun/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.jsdelivr.net/npm/twikoo@1.6.31/dist/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="12650420800" data-server="netease" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+if (navigator.serviceWorker.controller) {
+navigator.serviceWorker.addEventListener('controllerchange', function() {
+showNotification()
+})
+}
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/sw.js')
+})
+}
+function showNotification() {
+if (GLOBAL_CONFIG.Snackbar) {
+var snackbarBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+GLOBAL_CONFIG.Snackbar.bgLight :
+GLOBAL_CONFIG.Snackbar.bgDark
+var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+Snackbar.show({
+text: '✨ 有新文章啦！ 👉',
+backgroundColor: snackbarBg,
+duration: 500000,
+pos: snackbarPos,
+actionText: '🍗点击食用🍔',
+actionTextColor: '#fff',
+onActionClick: function(e) {
+location.reload()
+},
+})
+} else {
+var showBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+'#3b70fc' :
+'#1f1f1f'
+var cssText = `top: 0; background: ${showBg};`
+document.getElementById('app-refresh').style.cssText = cssText
+}
+}</script></div><!-- hexo injector body_end start -->
+    <link rel="stylesheet" crossorigin href="https://g.alicdn.com/aliyun-documentation/web-chatbot-ui/0.0.11/index.css" />
+    <script type="module" crossorigin src="https://g.alicdn.com/aliyun-documentation/web-chatbot-ui/0.0.11/index.js"></script>
+    <script>
+      window.CHATBOT_CONFIG = {
+        endpoint: "http://webchat-bot-yt02.fcv3.1206339714347396.cn-hangzhou.fc.devsapp.net/chat", // 可以替换为 https://{your-fc-http-trigger-domain}/chat
+        displayByDefault: false, // 默认不展示 AI 助手聊天框
+        aiChatOptions: { // aiChatOptions 中 options 会传递 aiChat 组件，自定义取值参考：https://docs.nlkit.com/nlux/reference/ui/ai-chat
+          conversationOptions: { // 自定义取值参考：https://docs.nlkit.com/nlux/reference/ui/ai-chat#conversation-options
+            conversationStarters: [
+              {prompt: '你是什么模型？'},
+              {prompt: '你的主人是？'},
+              {prompt: '你叫什么名字?'},
+            ]
+          },
+          displayOptions: { // 自定义取值参考：https://docs.nlkit.com/nlux/reference/ui/ai-chat#display-options
+            height: 600,
+          },
+          personaOptions: { // 自定义取值参考：https://docs.nlkit.com/nlux/reference/ui/ai-chat#chat-personas
+            assistant: {
+              name: '你好，我是你的 AI 助手',
+              // AI 助手的图标
+              avatar: 'https://img.alicdn.com/imgextra/i2/O1CN01Pda9nq1YDV0mnZ31H_!!6000000003025-54-tps-120-120.apng',
+              tagline: '您可以尝试点击下方的快捷入口开启体验！',
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :root {
+        /* webchat 工具栏的颜色 */
+        --webchat-toolbar-background-color: #1464E4;
+        /* webchat 工具栏文字和按钮的颜色 */
+        --webchat-toolbar-text-color: #FFF;
+      }
+      /* webchat 对话框如果被遮挡，可以尝试通过 z-index、bottom、right 等设置来调整位置 */
+      .webchat-container {
+        z-index: 100;
+        bottom: 10px;
+        right: 10px;
+      }
+      /* webchat 的唤起按钮如果被遮挡，可以尝试通过 z-index、bottom、right 等设置来调整位置 */
+      .webchat-bubble-tip {
+        z-index: 99;
+        bottom: 20px;
+        right: 20px;
+      }
+    </style><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = '7c6a3e7d74be928e93585d0203115a19';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '118.2112030,29.113033';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.2.2" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime/runtime.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":225,"height":450},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
